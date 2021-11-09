@@ -1,0 +1,6 @@
+framework module Pods_TabBarTest {
+  umbrella header "Pods-TabBarTest-umbrella.h"
+
+  export *
+  module * { export * }
+}
