@@ -26,6 +26,7 @@
 		9DD0585F27312B9100543DC9 /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0585E27312B9100543DC9 /* DiscoverVC.swift */; };
 		9DD0586127312C0D00543DC9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0586027312C0D00543DC9 /* Constant.swift */; };
 		9DD058642731796000543DC9 /* WaterfallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD058632731796000543DC9 /* WaterfallVC.swift */; };
+		9DD0E9D2273A9BBB0021B6D6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9DD0E9D1273A9BBB0021B6D6 /* .gitignore */; };
 		F5611DE3F0AEB237BA98E157 /* Pods_TabBarTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD221B80D581E1287C175D7D /* Pods_TabBarTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		9DD0585E27312B9100543DC9 /* DiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
 		9DD0586027312C0D00543DC9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9DD058632731796000543DC9 /* WaterfallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallVC.swift; sourceTree = "<group>"; };
+		9DD0E9D1273A9BBB0021B6D6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B74CF6CBF8D6F9B733513C43 /* Pods-TabBarTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBarTest.debug.xcconfig"; path = "Target Support Files/Pods-TabBarTest/Pods-TabBarTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DD221B80D581E1287C175D7D /* Pods_TabBarTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabBarTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -114,6 +116,7 @@
 		9D187319272F836D007D34FB = {
 			isa = PBXGroup;
 			children = (
+				9DD0E9D1273A9BBB0021B6D6 /* .gitignore */,
 				9D187324272F836D007D34FB /* TabBarTest */,
 				9D187323272F836D007D34FB /* Products */,
 				28C6D26E9F85E5F6FB2E783F /* Pods */,
@@ -253,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DD0E9D2273A9BBB0021B6D6 /* .gitignore in Resources */,
 				9D187335272F8370007D34FB /* LaunchScreen.storyboard in Resources */,
 				9D187332272F8370007D34FB /* Assets.xcassets in Resources */,
 				9D18732D272F836D007D34FB /* Main.storyboard in Resources */,
