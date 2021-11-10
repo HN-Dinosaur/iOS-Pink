@@ -27,3 +27,4 @@ let kWaterfallChannel = ["旅行","美食","游戏","健身","美女","帅哥","
 let kMaxExistPhotoCount: Int = 9
 let kMaxCameraZoomFactor: CGFloat = 10
 let kSpacingBetweenItems: CGFloat = 1.0
+let kMaxTextFieldInputCount = 20

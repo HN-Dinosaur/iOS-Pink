@@ -27,6 +27,7 @@
 		9DD0586127312C0D00543DC9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0586027312C0D00543DC9 /* Constant.swift */; };
 		9DD058642731796000543DC9 /* WaterfallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD058632731796000543DC9 /* WaterfallVC.swift */; };
 		9DD0E9D2273A9BBB0021B6D6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9DD0E9D1273A9BBB0021B6D6 /* .gitignore */; };
+		9DD0E9DC273BEB230021B6D6 /* NoteEditVC-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0E9DB273BEB230021B6D6 /* NoteEditVC-Extension.swift */; };
 		F5611DE3F0AEB237BA98E157 /* Pods_TabBarTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD221B80D581E1287C175D7D /* Pods_TabBarTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		9DD058632731796000543DC9 /* WaterfallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallVC.swift; sourceTree = "<group>"; };
 		9DD0E9D1273A9BBB0021B6D6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		9DD0E9D4273B5B460021B6D6 /* Pink-Header-Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pink-Header-Bridging.h"; sourceTree = "<group>"; };
+		9DD0E9DB273BEB230021B6D6 /* NoteEditVC-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditVC-Extension.swift"; sourceTree = "<group>"; };
 		B74CF6CBF8D6F9B733513C43 /* Pods-TabBarTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBarTest.debug.xcconfig"; path = "Target Support Files/Pods-TabBarTest/Pods-TabBarTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DD221B80D581E1287C175D7D /* Pods_TabBarTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabBarTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */,
+				9DD0E9DB273BEB230021B6D6 /* NoteEditVC-Extension.swift */,
 				9D79F92D2738DD2A004C33D6 /* photoCell.swift */,
 				9D79F95427393DF7004C33D6 /* PhotoFooter.swift */,
 			);
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D79F92A2738CD62004C33D6 /* PostVC.swift in Sources */,
+				9DD0E9DC273BEB230021B6D6 /* NoteEditVC-Extension.swift in Sources */,
 				9D835CA52730165E00229187 /* XLTabVC.swift in Sources */,
 				9DD058642731796000543DC9 /* WaterfallVC.swift in Sources */,
 				9DD0585F27312B9100543DC9 /* DiscoverVC.swift in Sources */,

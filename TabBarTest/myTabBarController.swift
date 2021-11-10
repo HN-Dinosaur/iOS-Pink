@@ -37,8 +37,9 @@ class myTabBarController: UITabBarController, UITabBarControllerDelegate {
             config.library.spacingBetweenItems = kSpacingBetweenItems
             config.library.preSelectItemOnMultipleSelection = false
 
-
+            
             let picker = YPImagePicker(configuration: config)
+            //传入closure
             picker.didFinishPicking { [unowned picker] items, _ in
                 for item in items{
                     switch item{
@@ -54,6 +55,7 @@ class myTabBarController: UITabBarController, UITabBarControllerDelegate {
                 }
                 picker.dismiss(animated: true, completion: nil)
             }
+            
             present(picker, animated: true, completion: nil)
 
             return false
