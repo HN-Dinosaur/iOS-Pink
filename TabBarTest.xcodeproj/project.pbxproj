@@ -54,6 +54,7 @@
 		9DD0586027312C0D00543DC9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		9DD058632731796000543DC9 /* WaterfallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallVC.swift; sourceTree = "<group>"; };
 		9DD0E9D1273A9BBB0021B6D6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9DD0E9D4273B5B460021B6D6 /* Pink-Header-Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pink-Header-Bridging.h"; sourceTree = "<group>"; };
 		B74CF6CBF8D6F9B733513C43 /* Pods-TabBarTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBarTest.debug.xcconfig"; path = "Target Support Files/Pods-TabBarTest/Pods-TabBarTest.debug.xcconfig"; sourceTree = "<group>"; };
 		DD221B80D581E1287C175D7D /* Pods_TabBarTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TabBarTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,6 +147,7 @@
 				9D187331272F8370007D34FB /* Assets.xcassets */,
 				9D18732E272F836D007D34FB /* TabBarTest.xcdatamodeld */,
 				9D187336272F8370007D34FB /* Info.plist */,
+				9DD0E9D4273B5B460021B6D6 /* Pink-Header-Bridging.h */,
 			);
 			path = TabBarTest;
 			sourceTree = "<group>";
@@ -484,6 +486,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.longdy.blog.TabBarTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TabBarTest/Pink-Header-Bridging.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -504,6 +508,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.longdy.blog.TabBarTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TabBarTest/Pink-Header-Bridging.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
