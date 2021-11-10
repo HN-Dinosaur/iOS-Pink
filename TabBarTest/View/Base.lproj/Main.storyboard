@@ -373,6 +373,8 @@
                                                 <connections>
                                                     <outlet property="dataSource" destination="Lan-hw-mWa" id="iiK-pZ-DVv"/>
                                                     <outlet property="delegate" destination="Lan-hw-mWa" id="5Ah-E2-rjJ"/>
+                                                    <outlet property="dragDelegate" destination="Lan-hw-mWa" id="9BY-dA-UaH"/>
+                                                    <outlet property="dropDelegate" destination="Lan-hw-mWa" id="DNE-ed-xhh"/>
                                                 </connections>
                                             </collectionView>
                                         </subviews>
