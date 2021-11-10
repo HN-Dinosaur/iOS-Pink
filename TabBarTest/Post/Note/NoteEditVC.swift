@@ -8,9 +8,9 @@
 import UIKit
 import PhotosUI
 import YPImagePicker
-import MBProgressHUD
 import SKPhotoBrowser
-class NoteEditVC: UIViewController {
+import AVKit
+class NoteEditVC: UIViewController{
     
     var photos = [
         UIImage(named: "1")!,UIImage(named: "2")!
@@ -24,8 +24,9 @@ class NoteEditVC: UIViewController {
         photos.count
     }
     var isVideo: Bool {
-        videoURL == nil
+        videoURL != nil
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,20 +36,40 @@ class NoteEditVC: UIViewController {
 }
 extension NoteEditVC: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // 1. create SKPhoto Array from UIImage
-        var images: [SKPhoto] = []
-        for photo in photos{
-            images.append(SKPhoto.photoWithImage(photo))
+        
+        
+        if isVideo{
+            let avPlayer = AVPlayerViewController()
+            let player = AVPlayer(url: videoURL!)
+            avPlayer.player = player
+            present(avPlayer, animated: true)
+            player.play()
+        }else{
+            // 1. create SKPhoto Array from UIImage
+            var images: [SKPhoto] = []
+            for photo in photos{
+                images.append(SKPhoto.photoWithImage(photo))
+            }
+            // 2. create PhotoBrowser Instance, and present from your viewController.
+            let browser = SKPhotoBrowser(photos: images, initialPageIndex: indexPath.item)
+            //实现删除照片功能
+            browser.delegate = self
+    //        SKPhotoBrowserOptions.displayPagingHorizontalScrollIndicator = false
+    //        SKPhotoBrowserOptions.displayCounterLabel = false
+            SKPhotoBrowserOptions.displayPagingHorizontalScrollIndicator = false
+            SKPhotoBrowserOptions.displayStatusbar = false
+            SKPhotoBrowserOptions.displayDeleteButton = true
+            SKPhotoBrowserOptions.displayAction = false
+            present(browser, animated: true)
         }
-        // 2. create PhotoBrowser Instance, and present from your viewController.
-        let browser = SKPhotoBrowser(photos: images, initialPageIndex: indexPath.item)
-//        SKPhotoBrowserOptions.displayPagingHorizontalScrollIndicator = false
-//        SKPhotoBrowserOptions.displayCounterLabel = false
-        SKPhotoBrowserOptions.displayPagingHorizontalScrollIndicator = false
-        SKPhotoBrowserOptions.displayStatusbar = false
-        SKPhotoBrowserOptions.displayDeleteButton = true
-        SKPhotoBrowserOptions.displayAction = false
-        present(browser, animated: true)
+    }
+}
+extension NoteEditVC: SKPhotoBrowserDelegate{
+    func removePhoto(_ browser: SKPhotoBrowser, index: Int, reload: @escaping (() -> Void)) {
+
+        photos.remove(at: index)
+        photoCollectionView.reloadData()
+        reload()
     }
 }
 extension NoteEditVC: UICollectionViewDataSource{
@@ -105,11 +126,7 @@ extension NoteEditVC: UICollectionViewDataSource{
                     }
                     present(picker, animated: true)
                 }else{
-                    let alert = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    alert.mode = .text
-                    alert.label.text = "最多只能选择\(kMaxExistPhotoCount)张图片"
-                    alert.hide(animated: true, afterDelay: 2)
-        
+                    showToast(text: "最多只能添加\(kMaxExistPhotoCount)张图片")
                 }
             }
         
