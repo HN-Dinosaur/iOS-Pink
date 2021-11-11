@@ -388,8 +388,9 @@
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请填写标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hd4-Il-Vyf">
                                                                         <rect key="frame" x="0.0" y="0.0" width="351" height="21"/>
+                                                                        <color key="tintColor" name="Main"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                                        <textInputTraits key="textInputTraits" returnKeyType="done" smartInsertDeleteType="no"/>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="Lan-hw-mWa" id="omh-lc-Tv6"/>
                                                                         </connections>
@@ -414,15 +415,19 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9iv-eC-Ba7">
                                                         <rect key="frame" x="0.0" y="54" width="382" height="147"/>
                                                         <subviews>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jdi-ND-DHI">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jdi-ND-DHI" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="130"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="tintColor" name="Main"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="130" id="lUD-XS-XSw"/>
                                                                 </constraints>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="请输入心情"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibx-LR-C0u">
                                                                 <rect key="frame" x="0.0" y="146" width="382" height="1"/>

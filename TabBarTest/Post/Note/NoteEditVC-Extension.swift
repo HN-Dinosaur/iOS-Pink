@@ -114,7 +114,6 @@ extension NoteEditVC: UICollectionViewDragDelegate{
         let photo = photos[indexPath.item]
         let dragItem = UIDragItem(itemProvider: NSItemProvider(object: photo))
         dragItem.localObject = photo
-//        itemProvider.localObject =
         return [dragItem]
     }
     
@@ -156,11 +155,27 @@ extension NoteEditVC: UITextFieldDelegate{
     }
     //正在输入
     func textFieldDidChangeSelection(_ textField: UITextField) {
+        //当前输入框高亮时退出
+        guard textField.markedTextRange == nil else{ return}
+        if textField.unwarpText.count > kMaxTextFieldInputCount{
+
+            //截去超出的字
+            textField.text = String(textField.unwarpText.prefix(kMaxTextFieldInputCount))
+            showToast(text: "最多只能输入\(kMaxTextFieldInputCount)个字")
+            DispatchQueue.main.async {
+                let end = textField.endOfDocument
+                textField.selectedTextRange = textField.textRange(from: end, to: end)
+            }
+            //让光标位于粘贴后的最后一位
+        }
         textCount.text = "\(kMaxTextFieldInputCount - textField.unwarpText.count)"
+
     }
     //结束输入
     func textFieldDidEndEditing(_ textField: UITextField) {
+
         textCount.isHidden = true
+  
     }
     //当点击键盘完成时，收起键盘
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -168,14 +183,14 @@ extension NoteEditVC: UITextFieldDelegate{
         return true
     }
     //将要输入
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        //如果当前输入的第一个字母的索引>=最大字符数 ｜｜ 当前textField.court + 输入.count大于最大字符数
-        let isExceed = range.location >= kMaxTextFieldInputCount || (textField.unwarpText.count + string.count) > kMaxTextFieldInputCount
-        if isExceed{
-            showToast(text: "最大输入\(kMaxTextFieldInputCount)个字符")
-        }
-        return !isExceed
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+//        //如果当前输入的第一个字母的索引>=最大字符数 ｜｜ 当前textField.court + 输入.count大于最大字符数
+//        let isExceed = range.location >= kMaxTextFieldInputCount || (textField.unwarpText.count + string.count) > kMaxTextFieldInputCount
+//        if isExceed{
+//            showToast(text: "最大输入\(kMaxTextFieldInputCount)个字符")
+//        }
+//        return !isExceed
+//    }
     
 }
