@@ -10,6 +10,8 @@ import XLPagerTabStrip
 
 class TopicViewController: ButtonBarPagerTabStripViewController {
     
+    var topicDelegate: TopicDelegate?
+    
     override func viewDidLoad() {
         settings.style.selectedBarHeight = 3
         settings.style.selectedBarBackgroundColor = UIColor(named: "Main")!
@@ -36,7 +38,7 @@ class TopicViewController: ButtonBarPagerTabStripViewController {
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController]{
         var vcs:[UIViewController] = []
         for i in kWaterfallChannel.indices{
-            let vc = storyboard?.instantiateViewController(withIdentifier: kTopicTableViewController) as! TopicTableViewController
+            let vc = storyboard?.instantiateViewController(withIdentifier: kTopicTableViewControllerID) as! TopicTableViewController
             vc.channel = kWaterfallChannel[i]
             vc.topicItems = kTopicItem[i]
             vcs.append(vc)

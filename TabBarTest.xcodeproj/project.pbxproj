@@ -19,6 +19,8 @@
 		9D604DA7273E023F00DF7949 /* KeyBoardInputAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */; };
 		9D73BA7F273E5C090036F63C /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73BA7E273E5C090036F63C /* TopicViewController.swift */; };
 		9D73BA81273E5F390036F63C /* TopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73BA80273E5F390036F63C /* TopicTableViewController.swift */; };
+		9D73BA87273E7C0E0036F63C /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73BA86273E7C0E0036F63C /* Protocol.swift */; };
+		9D73BA8A273E9F070036F63C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73BA89273E9F070036F63C /* SearchViewController.swift */; };
 		9D79F92A2738CD62004C33D6 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F9292738CD62004C33D6 /* PostVC.swift */; };
 		9D79F92C2738D12B004C33D6 /* NoteEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */; };
 		9D79F92E2738DD2A004C33D6 /* photoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F92D2738DD2A004C33D6 /* photoCell.swift */; };
@@ -51,6 +53,8 @@
 		9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyBoardInputAccessory.xib; sourceTree = "<group>"; };
 		9D73BA7E273E5C090036F63C /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		9D73BA80273E5F390036F63C /* TopicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewController.swift; sourceTree = "<group>"; };
+		9D73BA86273E7C0E0036F63C /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		9D73BA89273E9F070036F63C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9D79F9292738CD62004C33D6 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditVC.swift; sourceTree = "<group>"; };
 		9D79F92D2738DD2A004C33D6 /* photoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoCell.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				9D00D7012732BE8400898DC0 /* View */,
 				9D00D7022732BE8D00898DC0 /* Common */,
 				9D79F9332739118B004C33D6 /* Extensions */,
+				9D73BA88273E7C290036F63C /* Protocol */,
 				9D187331272F8370007D34FB /* Assets.xcassets */,
 				9D18732E272F836D007D34FB /* TabBarTest.xcdatamodeld */,
 				9D187336272F8370007D34FB /* Info.plist */,
@@ -169,6 +174,14 @@
 				9D73BA80273E5F390036F63C /* TopicTableViewController.swift */,
 			);
 			path = TopicSelect;
+			sourceTree = "<group>";
+		};
+		9D73BA88273E7C290036F63C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9D73BA86273E7C0E0036F63C /* Protocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		9D79F92F27390ABF004C33D6 /* Discovery */ = {
@@ -203,6 +216,7 @@
 				9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */,
 				9DD0E9DB273BEB230021B6D6 /* NoteEditVC-Extension.swift */,
 				9D73BA82273E5F430036F63C /* TopicSelect */,
+				9D73BA89273E9F070036F63C /* SearchViewController.swift */,
 				9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */,
 				9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */,
 				9D79F92D2738DD2A004C33D6 /* photoCell.swift */,
@@ -350,10 +364,12 @@
 				9D79F95527393DF7004C33D6 /* PhotoFooter.swift in Sources */,
 				9D187326272F836D007D34FB /* AppDelegate.swift in Sources */,
 				9D79F92C2738D12B004C33D6 /* NoteEditVC.swift in Sources */,
+				9D73BA8A273E9F070036F63C /* SearchViewController.swift in Sources */,
 				9DD0586127312C0D00543DC9 /* Constant.swift in Sources */,
 				9D79F92E2738DD2A004C33D6 /* photoCell.swift in Sources */,
 				9DD0585B27312B6B00543DC9 /* FollowVC.swift in Sources */,
 				9D79F93227391117004C33D6 /* Extensions.swift in Sources */,
+				9D73BA87273E7C0E0036F63C /* Protocol.swift in Sources */,
 				9D187328272F836D007D34FB /* SceneDelegate.swift in Sources */,
 				9D00D6FD2732A92100898DC0 /* WaterfallViewCell.swift in Sources */,
 				9D187330272F836D007D34FB /* TabBarTest.xcdatamodeld in Sources */,

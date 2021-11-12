@@ -8,8 +8,8 @@
 import UIKit
 import XLPagerTabStrip
 class TopicTableViewController: UITableViewController, IndicatorInfoProvider {
-
-    var channel: String?
+    
+    var channel: String = ""
     var topicItems: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,12 @@ class TopicTableViewController: UITableViewController, IndicatorInfoProvider {
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
+        if let topicVC = parent as? TopicViewController{
+            topicVC.topicDelegate?.updateTopic(topic: channel, subTopic: topicItems[indexPath.row])
+        }
+        dismiss(animated: true)
+        
     }
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: channel)

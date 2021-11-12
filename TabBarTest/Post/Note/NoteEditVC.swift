@@ -14,11 +14,19 @@ class NoteEditVC: UIViewController{
     ]
     var videoURL: URL?
     
+    var channel: String = ""
+    var subTopic: String = ""
+    
+    @IBOutlet weak var locationGesture: UIStackView!
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var textCount: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var topicGesture: UIStackView!
+    @IBOutlet weak var topicIcon: UIImageView!
+    @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var selectTopicLabel: UILabel!
+    
     //计算属性如果get的值没有改变则不再重新计算
     var photoCount: Int{
         photos.count
@@ -36,6 +44,7 @@ class NoteEditVC: UIViewController{
         
         
     }
+    
     func settingLayout(){
         photoCollectionView.dragInteractionEnabled = true
         textCount.isHidden = true
@@ -67,16 +76,38 @@ class NoteEditVC: UIViewController{
         //textViewCountDisplay
         keyBoardInputAccessoryView.maxTextCount.text = "/\(kMaxTextViewInputCount)"
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(registerTapGesture(tap:)))
-        topicGesture.addGestureRecognizer(tap)
-        
+        let topicTap = UITapGestureRecognizer(target: self, action: #selector(registerTopicTapGesture(tap:)))
+        topicGesture.addGestureRecognizer(topicTap)
+        let locationTap = UITapGestureRecognizer(target: self, action: #selector(registerLocationTapGesture(tap:)))
+        locationGesture.addGestureRecognizer(locationTap)
     }
-    @objc func registerTapGesture(tap: UITapGestureRecognizer){
-        let topicVC = storyboard?.instantiateViewController(withIdentifier: kTopicViewController) as! TopicViewController
+    @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
+        let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchViewControllerID) as! SearchViewController
+        searchVC.modalPresentationStyle = .fullScreen
+        present(searchVC, animated: true)
+    }
+    @objc func registerTopicTapGesture(tap: UITapGestureRecognizer){
+        let topicVC = storyboard?.instantiateViewController(withIdentifier: kTopicViewControllerID) as! TopicViewController
+        topicVC.topicDelegate = self
         present(topicVC, animated: true)
     }
     @objc func resignKeyBoardInputAccessoryRespond(){
         textView.resignFirstResponder()
     }
     
+
+    
 }
+extension NoteEditVC: TopicDelegate{
+    func updateTopic(topic: String, subTopic: String) {
+        self.channel = topic
+        self.subTopic = subTopic
+        
+        self.topicIcon.tintColor = .systemBlue
+        self.topicLabel.text = subTopic
+        self.topicLabel.textColor = .systemBlue
+        self.selectTopicLabel.isHidden = true
+        
+    }
+}
+

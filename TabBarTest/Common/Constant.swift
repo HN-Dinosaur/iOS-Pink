@@ -12,8 +12,9 @@ import UIKit
 let kDiscoverVCID = "DiscoverVCID"
 let kFollowVCID = "FollowVCID"
 let kNearbyVCID = "NearbyVCID"
-let kTopicTableViewController = "TopicTableViewControllerID"
-let kTopicViewController = "TopicViewControllerID"
+let kTopicTableViewControllerID = "TopicTableViewControllerID"
+let kTopicViewControllerID = "TopicViewControllerID"
+let kSearchViewControllerID = "SearchViewControllerID"
 // MARK: Waterfall
 let kWaterfallVCID = "WaterfallVCID"
 let kPostVCID = "PostVCID"
