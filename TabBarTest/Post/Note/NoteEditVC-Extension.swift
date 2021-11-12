@@ -158,7 +158,6 @@ extension NoteEditVC: UITextFieldDelegate{
         //当前输入框高亮时退出
         guard textField.markedTextRange == nil else{ return}
         if textField.unwarpText.count > kMaxTextFieldInputCount{
-
             //截去超出的字
             textField.text = String(textField.unwarpText.prefix(kMaxTextFieldInputCount))
             showToast(text: "最多只能输入\(kMaxTextFieldInputCount)个字")
@@ -193,4 +192,11 @@ extension NoteEditVC: UITextFieldDelegate{
 //        return !isExceed
 //    }
     
+}
+extension NoteEditVC: UITextViewDelegate{
+    func textViewDidChange(_ textView: UITextView) {
+        guard textView.markedTextRange == nil else {return}
+        keyBoardInputAccessoryView.currentTextCount = textView.text.count
+        
+    }
 }

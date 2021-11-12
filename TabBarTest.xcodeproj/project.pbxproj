@@ -15,8 +15,8 @@
 		9D187330272F836D007D34FB /* TabBarTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D18732E272F836D007D34FB /* TabBarTest.xcdatamodeld */; };
 		9D187332272F8370007D34FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D187331272F8370007D34FB /* Assets.xcassets */; };
 		9D187335272F8370007D34FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D187333272F8370007D34FB /* LaunchScreen.storyboard */; };
-		9D3E9C7B273D6EF000863775 /* KeyBoardInputAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E9C7A273D6EF000863775 /* KeyBoardInputAccessory.xib */; };
 		9D3E9C7D273D6F2700863775 /* KeyBoardInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */; };
+		9D604DA7273E023F00DF7949 /* KeyBoardInputAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */; };
 		9D79F92A2738CD62004C33D6 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F9292738CD62004C33D6 /* PostVC.swift */; };
 		9D79F92C2738D12B004C33D6 /* NoteEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */; };
 		9D79F92E2738DD2A004C33D6 /* photoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F92D2738DD2A004C33D6 /* photoCell.swift */; };
@@ -45,8 +45,8 @@
 		9D187331272F8370007D34FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D187334272F8370007D34FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D187336272F8370007D34FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D3E9C7A273D6EF000863775 /* KeyBoardInputAccessory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyBoardInputAccessory.xib; sourceTree = "<group>"; };
 		9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardInputAccessory.swift; sourceTree = "<group>"; };
+		9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyBoardInputAccessory.xib; sourceTree = "<group>"; };
 		9D79F9292738CD62004C33D6 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditVC.swift; sourceTree = "<group>"; };
 		9D79F92D2738DD2A004C33D6 /* photoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoCell.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 				9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */,
 				9DD0E9DB273BEB230021B6D6 /* NoteEditVC-Extension.swift */,
 				9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */,
-				9D3E9C7A273D6EF000863775 /* KeyBoardInputAccessory.xib */,
+				9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */,
 				9D79F92D2738DD2A004C33D6 /* photoCell.swift */,
 				9D79F95427393DF7004C33D6 /* PhotoFooter.swift */,
 			);
@@ -267,7 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D3E9C7B273D6EF000863775 /* KeyBoardInputAccessory.xib in Resources */,
+				9D604DA7273E023F00DF7949 /* KeyBoardInputAccessory.xib in Resources */,
 				9DD0E9D2273A9BBB0021B6D6 /* .gitignore in Resources */,
 				9D187335272F8370007D34FB /* LaunchScreen.storyboard in Resources */,
 				9D187332272F8370007D34FB /* Assets.xcassets in Resources */,

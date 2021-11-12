@@ -44,3 +44,12 @@ extension UIViewController{
         view.endEditing(true)
     }
 }
+//main是单例对象
+extension Bundle{
+    static func loadNibView<T>(name: String, class: T.Type) -> T{
+        if let view = main.loadNibNamed(name, owner: nil, options: nil)?.first as? T{
+            return view
+        }
+        fatalError("获取BundleView出现问题")
+    }
+}

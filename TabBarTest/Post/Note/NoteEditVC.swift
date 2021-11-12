@@ -26,10 +26,13 @@ class NoteEditVC: UIViewController{
     var isVideo: Bool {
         videoURL != nil
     }
+    var keyBoardInputAccessoryView: KeyBoardInputAccessory{
+        textView.inputAccessoryView as! KeyBoardInputAccessory
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        settingLayout()
         
         
     }
@@ -44,8 +47,10 @@ class NoteEditVC: UIViewController{
         //左右padding0
         //textView.textContainer.lineFragmentPadding = 0
         
+        //让每行间隙变成6
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 6
+        //添加样式
         let typeString:[NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .foregroundColor: UIColor.secondaryLabel,
@@ -54,7 +59,17 @@ class NoteEditVC: UIViewController{
         textView.typingAttributes = typeString
         //修改textView的光标颜色
         textView.tintColorDidChange()
-
+        
+        //拿到xib文件的实例
+        textView.inputAccessoryView = Bundle.loadNibView(name: "KeyBoardInputAccessory", class: KeyBoardInputAccessory.self)
+        keyBoardInputAccessoryView.doneBtn.addTarget(self, action: #selector(resignKeyBoardInputAccessoryRespond), for: .touchUpInside)
+        
+        //textViewCountDisplay
+        keyBoardInputAccessoryView.maxTextCount.text = "/\(kMaxTextViewInputCount)"
+        
+    }
+    @objc func resignKeyBoardInputAccessoryRespond(){
+        textView.resignFirstResponder()
     }
     
 }
