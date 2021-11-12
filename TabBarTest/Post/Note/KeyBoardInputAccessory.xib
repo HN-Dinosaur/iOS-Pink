@@ -24,19 +24,19 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UsK-u6-Slq">
-                    <rect key="frame" x="383" y="1" width="122" height="44"/>
+                    <rect key="frame" x="452" y="1" width="53" height="44"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEj-Yg-rBJ">
-                            <rect key="frame" x="0.0" y="13.5" width="69" height="17"/>
+                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEj-Yg-rBJ">
+                            <rect key="frame" x="0.0" y="13.5" width="0.0" height="17"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzd-dS-PYI">
-                                    <rect key="frame" x="0.0" y="0.0" width="32.5" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" name="Main"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0A-na-DFX">
-                                    <rect key="frame" x="32.5" y="0.0" width="36.5" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" systemColor="tertiaryLabelColor"/>
                                     <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbx-V4-4CC">
-                            <rect key="frame" x="69" y="6.5" width="53" height="31"/>
+                            <rect key="frame" x="0.0" y="6.5" width="53" height="31"/>
                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="完成"/>

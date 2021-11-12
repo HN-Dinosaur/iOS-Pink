@@ -17,6 +17,8 @@
 		9D187335272F8370007D34FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D187333272F8370007D34FB /* LaunchScreen.storyboard */; };
 		9D3E9C7D273D6F2700863775 /* KeyBoardInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */; };
 		9D604DA7273E023F00DF7949 /* KeyBoardInputAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */; };
+		9D73BA7F273E5C090036F63C /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73BA7E273E5C090036F63C /* TopicViewController.swift */; };
+		9D73BA81273E5F390036F63C /* TopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D73BA80273E5F390036F63C /* TopicTableViewController.swift */; };
 		9D79F92A2738CD62004C33D6 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F9292738CD62004C33D6 /* PostVC.swift */; };
 		9D79F92C2738D12B004C33D6 /* NoteEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */; };
 		9D79F92E2738DD2A004C33D6 /* photoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79F92D2738DD2A004C33D6 /* photoCell.swift */; };
@@ -47,6 +49,8 @@
 		9D187336272F8370007D34FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardInputAccessory.swift; sourceTree = "<group>"; };
 		9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyBoardInputAccessory.xib; sourceTree = "<group>"; };
+		9D73BA7E273E5C090036F63C /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
+		9D73BA80273E5F390036F63C /* TopicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewController.swift; sourceTree = "<group>"; };
 		9D79F9292738CD62004C33D6 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditVC.swift; sourceTree = "<group>"; };
 		9D79F92D2738DD2A004C33D6 /* photoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoCell.swift; sourceTree = "<group>"; };
@@ -158,6 +162,15 @@
 			path = TabBarTest;
 			sourceTree = "<group>";
 		};
+		9D73BA82273E5F430036F63C /* TopicSelect */ = {
+			isa = PBXGroup;
+			children = (
+				9D73BA7E273E5C090036F63C /* TopicViewController.swift */,
+				9D73BA80273E5F390036F63C /* TopicTableViewController.swift */,
+			);
+			path = TopicSelect;
+			sourceTree = "<group>";
+		};
 		9D79F92F27390ABF004C33D6 /* Discovery */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +202,7 @@
 			children = (
 				9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */,
 				9DD0E9DB273BEB230021B6D6 /* NoteEditVC-Extension.swift */,
+				9D73BA82273E5F430036F63C /* TopicSelect */,
 				9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */,
 				9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */,
 				9D79F92D2738DD2A004C33D6 /* photoCell.swift */,
@@ -327,9 +341,11 @@
 				9D79F92A2738CD62004C33D6 /* PostVC.swift in Sources */,
 				9DD0E9DC273BEB230021B6D6 /* NoteEditVC-Extension.swift in Sources */,
 				9D835CA52730165E00229187 /* XLTabVC.swift in Sources */,
+				9D73BA81273E5F390036F63C /* TopicTableViewController.swift in Sources */,
 				9DD058642731796000543DC9 /* WaterfallVC.swift in Sources */,
 				9D3E9C7D273D6F2700863775 /* KeyBoardInputAccessory.swift in Sources */,
 				9DD0585F27312B9100543DC9 /* DiscoverVC.swift in Sources */,
+				9D73BA7F273E5C090036F63C /* TopicViewController.swift in Sources */,
 				9D0B264F2733C41C009DD654 /* myTabBarController.swift in Sources */,
 				9D79F95527393DF7004C33D6 /* PhotoFooter.swift in Sources */,
 				9D187326272F836D007D34FB /* AppDelegate.swift in Sources */,

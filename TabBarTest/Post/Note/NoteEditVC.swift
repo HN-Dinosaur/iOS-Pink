@@ -18,7 +18,7 @@ class NoteEditVC: UIViewController{
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var textCount: UILabel!
     @IBOutlet weak var textView: UITextView!
-    
+    @IBOutlet weak var topicGesture: UIStackView!
     //计算属性如果get的值没有改变则不再重新计算
     var photoCount: Int{
         photos.count
@@ -43,7 +43,7 @@ class NoteEditVC: UIViewController{
         //得到TextView左右的padding
         let padding = textView.textContainer.lineFragmentPadding
         //上下padding0
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: padding, bottom: 0, right: padding)
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: -padding, bottom: 0, right: -padding)
         //左右padding0
         //textView.textContainer.lineFragmentPadding = 0
         
@@ -67,6 +67,13 @@ class NoteEditVC: UIViewController{
         //textViewCountDisplay
         keyBoardInputAccessoryView.maxTextCount.text = "/\(kMaxTextViewInputCount)"
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(registerTapGesture(tap:)))
+        topicGesture.addGestureRecognizer(tap)
+        
+    }
+    @objc func registerTapGesture(tap: UITapGestureRecognizer){
+        let topicVC = storyboard?.instantiateViewController(withIdentifier: kTopicViewController) as! TopicViewController
+        present(topicVC, animated: true)
     }
     @objc func resignKeyBoardInputAccessoryRespond(){
         textView.resignFirstResponder()
