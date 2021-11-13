@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import CoreLocation 
+
 class NoteEditVC: UIViewController{
     
     var photos = [
@@ -16,6 +18,7 @@ class NoteEditVC: UIViewController{
     
     var channel: String = ""
     var subTopic: String = ""
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var locationGesture: UIStackView!
     @IBOutlet weak var photoCollectionView: UICollectionView!
@@ -75,14 +78,18 @@ class NoteEditVC: UIViewController{
         
         //textViewCountDisplay
         keyBoardInputAccessoryView.maxTextCount.text = "/\(kMaxTextViewInputCount)"
-        
+        //添加点击话题手势
         let topicTap = UITapGestureRecognizer(target: self, action: #selector(registerTopicTapGesture(tap:)))
         topicGesture.addGestureRecognizer(topicTap)
+        //添加点击位置手势
         let locationTap = UITapGestureRecognizer(target: self, action: #selector(registerLocationTapGesture(tap:)))
         locationGesture.addGestureRecognizer(locationTap)
+        
+        //请求地址
+        locationManager.requestWhenInUseAuthorization()
     }
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
-        let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchViewControllerID) as! SearchViewController
+        let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchLocationVCID) as! SearchLocationVC
         searchVC.modalPresentationStyle = .fullScreen
         present(searchVC, animated: true)
     }
@@ -94,7 +101,6 @@ class NoteEditVC: UIViewController{
     @objc func resignKeyBoardInputAccessoryRespond(){
         textView.resignFirstResponder()
     }
-    
 
     
 }

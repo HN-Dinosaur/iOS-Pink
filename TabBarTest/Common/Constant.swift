@@ -14,7 +14,7 @@ let kFollowVCID = "FollowVCID"
 let kNearbyVCID = "NearbyVCID"
 let kTopicTableViewControllerID = "TopicTableViewControllerID"
 let kTopicViewControllerID = "TopicViewControllerID"
-let kSearchViewControllerID = "SearchViewControllerID"
+let kSearchLocationVCID = "SearchLocationVCID"
 // MARK: Waterfall
 let kWaterfallVCID = "WaterfallVCID"
 let kPostVCID = "PostVCID"
@@ -43,3 +43,6 @@ let kTopicItem = [
     ["装x西餐厅", "网红店打卡"],
     ["我的猫儿子", "我的猫女儿", "我的兔兔"]
 ]
+
+// MARK: gaodeSDK
+let locationSDKSecret = "ceeb4f7e3c332e2eba36f31b04fe44d0"

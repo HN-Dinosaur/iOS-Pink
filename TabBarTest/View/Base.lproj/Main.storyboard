@@ -602,10 +602,10 @@
             </objects>
             <point key="canvasLocation" x="3318.840579710145" y="75.669642857142847"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search LocationVC-->
         <scene sceneID="6c8-k9-JRS">
             <objects>
-                <viewController storyboardIdentifier="SearchViewControllerID" id="rRD-ES-tgh" customClass="SearchViewController" customModule="TabBarTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchLocationVCID" id="rRD-ES-tgh" customClass="SearchLocationVC" customModule="TabBarTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vmV-Q6-DBv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -637,6 +637,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rRD-ES-tgh" id="5gO-20-2s5"/>
+                                    <outlet property="delegate" destination="rRD-ES-tgh" id="1aD-lq-NZc"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2B7-tu-9rk"/>
