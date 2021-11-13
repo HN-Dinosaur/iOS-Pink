@@ -18,6 +18,7 @@ let kSearchLocationVCID = "SearchLocationVCID"
 // MARK: Waterfall
 let kWaterfallVCID = "WaterfallVCID"
 let kPostVCID = "PostVCID"
+let kPOICellID = "POICellID"
 // MARK: CellID
 let kWaterfallCellID = "WaterfallCellID"
 let kPhotoCellID = "photoCellID"
@@ -45,4 +46,5 @@ let kTopicItem = [
 ]
 
 // MARK: gaodeSDK
-let locationSDKSecret = "ceeb4f7e3c332e2eba36f31b04fe44d0"
+let klocationSDKSecret = "ceeb4f7e3c332e2eba36f31b04fe44d0"
+let kUnknowPOIName = "不知名的地点"

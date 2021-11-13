@@ -8,6 +8,10 @@
 import UIKit
 import MBProgressHUD
 
+extension Optional where Wrapped == String{
+    var unwarpString: String{ self ?? "" }
+}
+
 extension UITextField{
     //计算属性  解包
     var unwarpText: String{
@@ -27,6 +31,15 @@ extension UIView{
 }
 extension UIViewController{
     
+    func showLoad(_ text: String? = nil){
+        let load = MBProgressHUD.showAdded(to: view, animated: true)
+        load.label.text = text
+    }
+    func hideLoad(){
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+    }
     // MARK: 显示文字提示
     func showToast(text: String){
         let toast = MBProgressHUD.showAdded(to: view, animated: true)

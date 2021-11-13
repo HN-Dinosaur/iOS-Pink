@@ -7,7 +7,8 @@
 
 import UIKit
 import CoreData
-import CoreLocation 
+import CoreLocation
+import AMapLocationKit
 
 class NoteEditVC: UIViewController{
     
@@ -87,6 +88,10 @@ class NoteEditVC: UIViewController{
         
         //请求地址
         locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        //请求的位置精度
+        //异步请求
+        locationManager.requestLocation()
     }
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
         let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchLocationVCID) as! SearchLocationVC

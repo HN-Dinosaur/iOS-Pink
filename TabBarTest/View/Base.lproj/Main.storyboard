@@ -617,24 +617,51 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0w1-UB-qBW">
-                                <rect key="frame" x="16" y="112" width="382" height="1"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0w1-UB-qBW">
+                                <rect key="frame" x="0.0" y="112" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="75S-Fl-mmO"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yia-7p-fo0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Yia-7p-fo0">
                                 <rect key="frame" x="0.0" y="112" width="414" height="784"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qpQ-9U-FMg">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="POICellID" id="TFT-wA-3or" customClass="SearchLocationCell" customModule="TabBarTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qpQ-9U-FMg" id="Fr1-vs-FnG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TFT-wA-3or" id="rMu-Kb-xIU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7rh-id-N1L">
+                                                    <rect key="frame" x="20" y="11.5" width="187.5" height="37"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqm-5A-gdf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市朝阳区北四环中路27号院" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEf-1M-oBz">
+                                                            <rect key="frame" x="0.0" y="21" width="187.5" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7rh-id-N1L" firstAttribute="leading" secondItem="rMu-Kb-xIU" secondAttribute="leadingMargin" id="8kI-2U-Qra"/>
+                                                <constraint firstItem="7rh-id-N1L" firstAttribute="centerY" secondItem="rMu-Kb-xIU" secondAttribute="centerY" id="DK0-Ns-CVM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationLabel" destination="nqm-5A-gdf" id="9BF-jV-7C8"/>
+                                            <outlet property="specificLabel" destination="BEf-1M-oBz" id="2Rs-c0-rtc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -647,15 +674,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0w1-UB-qBW" firstAttribute="top" secondItem="gvk-Wj-Tze" secondAttribute="bottom" constant="16" id="DB9-4t-tuc"/>
+                            <constraint firstItem="0w1-UB-qBW" firstAttribute="leading" secondItem="vmV-Q6-DBv" secondAttribute="leading" id="EXQ-Xb-Z4o"/>
                             <constraint firstItem="gvk-Wj-Tze" firstAttribute="trailing" secondItem="2B7-tu-9rk" secondAttribute="trailing" id="GUn-mN-QS0"/>
                             <constraint firstAttribute="bottom" secondItem="Yia-7p-fo0" secondAttribute="bottom" id="H4M-pC-iC0"/>
                             <constraint firstItem="Yia-7p-fo0" firstAttribute="leading" secondItem="2B7-tu-9rk" secondAttribute="leading" id="KOS-VN-xZB"/>
                             <constraint firstItem="gvk-Wj-Tze" firstAttribute="top" secondItem="2B7-tu-9rk" secondAttribute="top" constant="8" id="XCS-nH-qeJ"/>
+                            <constraint firstAttribute="trailing" secondItem="0w1-UB-qBW" secondAttribute="trailing" id="dVo-Mr-fI8"/>
                             <constraint firstItem="gvk-Wj-Tze" firstAttribute="leading" secondItem="2B7-tu-9rk" secondAttribute="leading" id="fVn-j2-u4N"/>
                             <constraint firstItem="Yia-7p-fo0" firstAttribute="trailing" secondItem="2B7-tu-9rk" secondAttribute="trailing" id="gU0-9O-Tlc"/>
                             <constraint firstItem="Yia-7p-fo0" firstAttribute="top" secondItem="gvk-Wj-Tze" secondAttribute="bottom" constant="16" id="nhd-r2-Aa5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="POITableVIew" destination="Yia-7p-fo0" id="AMd-nY-IeT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqQ-ZZ-9Rr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

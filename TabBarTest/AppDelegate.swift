@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate{
     func getLocationConfig(){
         AMapServices.shared().enableHTTPS = true
-        AMapServices.shared().apiKey = locationSDKSecret
+        AMapServices.shared().apiKey = klocationSDKSecret
     }
 }
 

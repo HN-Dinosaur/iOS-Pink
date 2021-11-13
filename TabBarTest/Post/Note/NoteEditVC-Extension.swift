@@ -10,6 +10,9 @@ import PhotosUI
 import YPImagePicker
 import SKPhotoBrowser
 import AVKit
+import CoreLocation
+import AMapFoundationKit
+import AMapLocationKit
 
 extension NoteEditVC: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -198,6 +201,27 @@ extension NoteEditVC: UITextViewDelegate{
         guard textView.markedTextRange == nil else {return}
         keyBoardInputAccessoryView.currentTextCount = textView.text.count
         
+    }
+}
+extension NoteEditVC: CLLocationManagerDelegate{
+
+    //成功获取用户位置一次
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //经度
+//        let lon = locations[0].coordinate.longitude
+//        //纬度
+//        let lat = locations[0].coordinate.latitude
+        //通过第三方包的Http请求Api获取天气信息参数（经纬度）&（key）
+        AMapLocationManager.updatePrivacyShow(.didShow, privacyInfo: .didContain)
+        AMapLocationManager.updatePrivacyAgree(.didAgree)
+        
+
+    }
+    //不能获取用户位置
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        AMapLocationManager.updatePrivacyAgree(.unknow)
+        AMapLocationManager.updatePrivacyShow(.unknow, privacyInfo: .unknow)
+        showToast(text: "获取位置失败")
     }
 }
 
