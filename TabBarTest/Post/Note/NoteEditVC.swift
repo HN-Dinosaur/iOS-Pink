@@ -34,7 +34,10 @@ class NoteEditVC: UIViewController{
     @IBOutlet weak var POIIcon: UIImageView!
     @IBOutlet weak var POILabel: UILabel!
     @IBOutlet weak var storeStack: UIStackView!
-    @IBOutlet weak var sendBtn: UIButton!
+    @IBAction func sendBtn(_ sender: Any) {
+        
+    }
+    
     
     //计算属性如果get的值没有改变则不再重新计算
     var photoCount: Int{
@@ -90,6 +93,9 @@ class NoteEditVC: UIViewController{
         //添加点击位置手势
         let locationTap = UITapGestureRecognizer(target: self, action: #selector(registerLocationTapGesture(tap:)))
         locationGesture.addGestureRecognizer(locationTap)
+        //存草稿功能
+        let draftStoreTap = UITapGestureRecognizer(target: self, action: #selector(registerDraftStoreTapGesture(tao:)))
+        storeStack.addGestureRecognizer(draftStoreTap)
         
         //请求地址
         locationManager.requestWhenInUseAuthorization()
@@ -97,6 +103,22 @@ class NoteEditVC: UIViewController{
         //请求的位置精度
         //异步请求
         locationManager.requestLocation()
+    }
+    @objc func registerDraftStoreTapGesture(tao: UITapGestureRecognizer){
+        guard textView.text.count <= kMaxTextViewInputCount else{
+            showToast(text: "最多只能填写\(kMaxTextViewInputCount)个字")
+            return
+        }
+        
+        let persistentContainer = UIApplication.shared.delegate as! NSPersistentContainer
+        let viewContext = persistentContainer.viewContext
+        let draftNote = DraftNote(context: viewContext)
+        draftNote.poiName = poiName
+        draftNote.subTopic = subTopic
+        draftNote.channel = channel
+        draftNote.title = titleTextField.exctString
+        draftNote.text = textView.exctString
+        
     }
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
         let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchLocationVCID) as! SearchLocationVC
@@ -106,6 +128,7 @@ class NoteEditVC: UIViewController{
         present(searchVC, animated: true)
     }
     @objc func registerTopicTapGesture(tap: UITapGestureRecognizer){
+        view.endEditing(true)
         let topicVC = storyboard?.instantiateViewController(withIdentifier: kTopicViewControllerID) as! TopicViewController
         topicVC.topicDelegate = self
         present(topicVC, animated: true)

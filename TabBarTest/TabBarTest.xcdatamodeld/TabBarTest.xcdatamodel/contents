@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DraftNote" representedClassName="DraftNote" syncable="YES" codeGenerationType="class">
+        <attribute name="channel" attributeType="String" defaultValueString=""/>
+        <attribute name="poiName" attributeType="String" defaultValueString=""/>
+        <attribute name="subTopic" attributeType="String" defaultValueString=""/>
+        <attribute name="text" attributeType="String" defaultValueString=""/>
+        <attribute name="title" attributeType="String" defaultValueString=""/>
+    </entity>
+    <elements>
+        <element name="DraftNote" positionX="-63" positionY="-18" width="128" height="104"/>
+    </elements>
 </model>

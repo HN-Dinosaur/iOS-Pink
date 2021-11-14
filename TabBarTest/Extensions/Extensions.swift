@@ -16,12 +16,25 @@ extension String{
 
 extension Optional where Wrapped == String{
     var unwarpString: String{ self ?? "" }
+
 }
 
 extension UITextField{
     //计算属性  解包
     var unwarpText: String{
         text ?? ""
+    }
+    var exctString: String {
+        unwarpText.isBlank ? "" : unwarpText
+    }
+}
+extension UITextView{
+    //计算属性  解包
+    var unwarpText: String{
+        text ?? ""
+    }
+    var exctString: String {
+        unwarpText.isBlank ? "" : unwarpText
     }
 }
 extension UIView{

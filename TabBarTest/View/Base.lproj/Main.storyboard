@@ -619,6 +619,9 @@
                                                 <real key="value" value="22"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sendBtn:" destination="Lan-hw-mWa" eventType="touchUpInside" id="lL3-QO-nQJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -650,7 +653,6 @@
                         <outlet property="locationGesture" destination="pGM-eg-5Gs" id="Q7d-rj-PVg"/>
                         <outlet property="photoCollectionView" destination="gVc-Ic-FEB" id="C0W-8G-aj5"/>
                         <outlet property="selectTopicLabel" destination="VXS-fc-USb" id="Ziy-bH-8Fv"/>
-                        <outlet property="sendBtn" destination="4i2-x9-EHe" id="lip-dJ-CAE"/>
                         <outlet property="storeStack" destination="37S-tW-IAu" id="iGp-9c-jSY"/>
                         <outlet property="textCount" destination="gev-L5-FZM" id="Xxr-2c-Ryi"/>
                         <outlet property="textView" destination="jdi-ND-DHI" id="NhT-bo-F5g"/>
