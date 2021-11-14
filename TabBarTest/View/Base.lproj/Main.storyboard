@@ -615,7 +615,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Fvw-pQ-DGP"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0w1-UB-qBW">
                                 <rect key="frame" x="0.0" y="112" width="414" height="1"/>
@@ -687,6 +687,7 @@
                     </view>
                     <connections>
                         <outlet property="POITableVIew" destination="Yia-7p-fo0" id="AMd-nY-IeT"/>
+                        <outlet property="searchBar" destination="gvk-Wj-Tze" id="dSz-sT-d78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqQ-ZZ-9Rr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

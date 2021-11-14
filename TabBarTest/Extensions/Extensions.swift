@@ -8,6 +8,12 @@
 import UIKit
 import MBProgressHUD
 
+extension String{
+    var isBlank: Bool{
+        self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
 extension Optional where Wrapped == String{
     var unwarpString: String{ self ?? "" }
 }
