@@ -53,6 +53,7 @@
 		9D187334272F8370007D34FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D187336272F8370007D34FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardInputAccessory.swift; sourceTree = "<group>"; };
+		9D3FA9C62740FF3100CBCC22 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		9D598644273F60F9007C1E7A /* SearchLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationVC.swift; sourceTree = "<group>"; };
 		9D598646273FE14B007C1E7A /* SearchLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationCell.swift; sourceTree = "<group>"; };
 		9D604DA6273E023F00DF7949 /* KeyBoardInputAccessory.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyBoardInputAccessory.xib; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 				9D18732E272F836D007D34FB /* TabBarTest.xcdatamodeld */,
 				9D187336272F8370007D34FB /* Info.plist */,
 				9DD0E9D4273B5B460021B6D6 /* Pink-Header-Bridging.h */,
+				9D3FA9C62740FF3100CBCC22 /* test.playground */,
 			);
 			path = TabBarTest;
 			sourceTree = "<group>";

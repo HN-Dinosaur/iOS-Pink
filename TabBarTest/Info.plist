@@ -9,8 +9,6 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>打开后可以获取当前位置以得到更好的体验</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Dark</string>
 	<key>CFBundleDisplayName</key>
 	<string>Pink</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>

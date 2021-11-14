@@ -19,6 +19,7 @@ class NoteEditVC: UIViewController{
     
     var channel: String = ""
     var subTopic: String = ""
+    var poiName: String = ""
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var locationGesture: UIStackView!
@@ -30,6 +31,10 @@ class NoteEditVC: UIViewController{
     @IBOutlet weak var topicIcon: UIImageView!
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var selectTopicLabel: UILabel!
+    @IBOutlet weak var POIIcon: UIImageView!
+    @IBOutlet weak var POILabel: UILabel!
+    @IBOutlet weak var storeStack: UIStackView!
+    @IBOutlet weak var sendBtn: UIButton!
     
     //计算属性如果get的值没有改变则不再重新计算
     var photoCount: Int{
@@ -96,6 +101,8 @@ class NoteEditVC: UIViewController{
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
         let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchLocationVCID) as! SearchLocationVC
         searchVC.modalPresentationStyle = .fullScreen
+        searchVC.delegate = self
+        searchVC.poiName = poiName
         present(searchVC, animated: true)
     }
     @objc func registerTopicTapGesture(tap: UITapGestureRecognizer){
@@ -121,4 +128,23 @@ extension NoteEditVC: TopicDelegate{
         
     }
 }
+extension NoteEditVC: POIDelagate{
+    func updatePOI(poiName: String) {
+        
+        if poiName == "不显示任何位置"{
+            self.poiName = ""
+            POIIcon.tintColor = .secondaryLabel
+            POILabel.text = "添加地点"
+            POILabel.textColor = .label
+        }else{
+            self.poiName = poiName
+            POIIcon.tintColor = .systemBlue
+            POILabel.text = poiName
+            POILabel.textColor = .systemBlue
+        }
+        
+
+    }
+}
+
 

@@ -15,3 +15,6 @@ protocol TopicDelegate{
     /// - Returns: nil
     func updateTopic(topic: String, subTopic: String)
 }
+protocol POIDelagate{
+    func updatePOI(poiName: String)
+}

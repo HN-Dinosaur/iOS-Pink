@@ -48,3 +48,4 @@ let kTopicItem = [
 // MARK: gaodeSDK
 let klocationSDKSecret = "ceeb4f7e3c332e2eba36f31b04fe44d0"
 let kUnknowPOIName = "不知名的地点"
+let kDefaultPageOffset = 20

@@ -8,6 +8,7 @@ import CoreLocation
 import AMapLocationKit
 import AMapFoundationKit
 import AMapSearchKit
+import MJRefresh
 extension SearchLocationVC{
     func request(){
         showLoad()
@@ -43,7 +44,9 @@ extension SearchLocationVC{
             if let location = location{
                 POIVC.latitude = location.coordinate.latitude
                 POIVC.longitude = location.coordinate.longitude
-                POIVC.mapSearch?.aMapPOIAroundSearch(POIVC.searchRequest)
+                POIVC.aroundSearch()
+                POIVC.footer.resetNoMoreData()
+                POIVC.POITableVIew.mj_footer?.setRefreshingTarget(POIVC, refreshingAction: #selector(POIVC.refreshPOILocation))
             }
 
 
@@ -64,4 +67,15 @@ extension SearchLocationVC{
             }
         })
     }
+ 
+    func aroundSearch(_ page: Int = 1){
+        aroundRearchRequest.page = page
+        mapSearch?.aMapPOIAroundSearch(aroundRearchRequest)
+    }
+    @objc func refreshPOILocation(){
+        aroundCurrentPageLocation += 1
+        aroundSearch(aroundCurrentPageLocation)
+        footer.endRefreshing()
+    }
 }
+

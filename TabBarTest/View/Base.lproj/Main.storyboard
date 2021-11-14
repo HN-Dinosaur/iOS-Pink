@@ -576,6 +576,61 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="n77-cE-P8D"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="xfz-R2-BeC"/>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ed5-Wd-FRv">
+                                <rect key="frame" x="16" y="818" width="382" height="44"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="37S-tW-IAu">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="44"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IcV-BS-APZ">
+                                                <rect key="frame" x="0.0" y="2.5" width="70" height="23.5"/>
+                                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                                <imageReference key="image" image="archivebox.circle.fill" catalog="system" symbolScale="small"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="存草稿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z4-S2-7OL">
+                                                <rect key="frame" x="0.0" y="28" width="70" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="N6I-he-bPs"/>
+                                            <constraint firstAttribute="height" constant="44" id="srn-zw-DjA"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4i2-x9-EHe">
+                                        <rect key="frame" x="78" y="0.0" width="304" height="44"/>
+                                        <color key="backgroundColor" name="Main"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="发送">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="PingFangSC-Semibold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                <real key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="37S-tW-IAu" firstAttribute="leading" secondItem="ed5-Wd-FRv" secondAttribute="leading" id="0AC-uf-tYB"/>
+                                    <constraint firstAttribute="trailing" secondItem="4i2-x9-EHe" secondAttribute="trailing" id="6Hf-eF-I2K"/>
+                                    <constraint firstItem="4i2-x9-EHe" firstAttribute="top" secondItem="ed5-Wd-FRv" secondAttribute="top" id="8Ha-w2-4n8"/>
+                                    <constraint firstItem="4i2-x9-EHe" firstAttribute="leading" secondItem="37S-tW-IAu" secondAttribute="trailing" id="Kb2-cr-3Ze"/>
+                                    <constraint firstAttribute="bottom" secondItem="37S-tW-IAu" secondAttribute="bottom" id="TqJ-tA-Ce9"/>
+                                    <constraint firstAttribute="height" constant="44" id="gZA-g7-kU7"/>
+                                    <constraint firstAttribute="bottom" secondItem="4i2-x9-EHe" secondAttribute="bottom" id="k34-AZ-n27"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RYr-jq-c0c"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -583,13 +638,20 @@
                             <constraint firstItem="E5H-q8-UqW" firstAttribute="leading" secondItem="RYr-jq-c0c" secondAttribute="leading" id="09V-UZ-90B"/>
                             <constraint firstAttribute="bottom" secondItem="E5H-q8-UqW" secondAttribute="bottom" id="0z3-6p-XxX"/>
                             <constraint firstItem="E5H-q8-UqW" firstAttribute="top" secondItem="RYr-jq-c0c" secondAttribute="top" id="2MY-ws-fNY"/>
+                            <constraint firstItem="RYr-jq-c0c" firstAttribute="bottom" secondItem="ed5-Wd-FRv" secondAttribute="bottom" id="FIR-Ol-TZj"/>
                             <constraint firstItem="E5H-q8-UqW" firstAttribute="trailing" secondItem="RYr-jq-c0c" secondAttribute="trailing" id="V1u-GA-5re"/>
+                            <constraint firstItem="RYr-jq-c0c" firstAttribute="trailing" secondItem="ed5-Wd-FRv" secondAttribute="trailing" constant="16" id="Vx2-0a-6IA"/>
+                            <constraint firstItem="ed5-Wd-FRv" firstAttribute="leading" secondItem="RYr-jq-c0c" secondAttribute="leading" constant="16" id="XQu-h5-1xy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="POIIcon" destination="bNh-CW-oXf" id="iWf-ge-p0m"/>
+                        <outlet property="POILabel" destination="qjq-ex-a7T" id="YTW-K0-dcn"/>
                         <outlet property="locationGesture" destination="pGM-eg-5Gs" id="Q7d-rj-PVg"/>
                         <outlet property="photoCollectionView" destination="gVc-Ic-FEB" id="C0W-8G-aj5"/>
                         <outlet property="selectTopicLabel" destination="VXS-fc-USb" id="Ziy-bH-8Fv"/>
+                        <outlet property="sendBtn" destination="4i2-x9-EHe" id="lip-dJ-CAE"/>
+                        <outlet property="storeStack" destination="37S-tW-IAu" id="iGp-9c-jSY"/>
                         <outlet property="textCount" destination="gev-L5-FZM" id="Xxr-2c-Ryi"/>
                         <outlet property="textView" destination="jdi-ND-DHI" id="NhT-bo-F5g"/>
                         <outlet property="titleTextField" destination="Hd4-Il-Vyf" id="Ylc-k3-li9"/>
@@ -801,6 +863,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="archivebox.circle.fill" catalog="system" width="128" height="121"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
