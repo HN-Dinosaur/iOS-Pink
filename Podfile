@@ -15,4 +15,5 @@ target 'TabBarTest' do
   pod 'AMapLocation'
   pod 'AMapSearch'
   pod 'MJRefresh'
+  pod 'SnapKit', '~> 5.0.0'
 end

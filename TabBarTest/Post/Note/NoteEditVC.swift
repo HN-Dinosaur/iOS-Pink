@@ -53,8 +53,9 @@ class NoteEditVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         settingLayout()
-        
-        
+        print(NSHomeDirectory() )
+        NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     }
     
     func settingLayout(){
@@ -105,19 +106,38 @@ class NoteEditVC: UIViewController{
         locationManager.requestLocation()
     }
     @objc func registerDraftStoreTapGesture(tao: UITapGestureRecognizer){
-        guard textView.text.count <= kMaxTextViewInputCount else{
+        
+        guard keyBoardInputAccessoryView.currentTextCount <= kMaxTextViewInputCount else{
             showToast(text: "最多只能填写\(kMaxTextViewInputCount)个字")
             return
         }
         
-        let persistentContainer = UIApplication.shared.delegate as! NSPersistentContainer
-        let viewContext = persistentContainer.viewContext
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let viewContext = appDelegate.persistentContainer.viewContext
         let draftNote = DraftNote(context: viewContext)
+        
+        //存储视频
+        if isVideo{
+            draftNote.video = try? Data(contentsOf: videoURL!)
+        }
+        //存储所有照片
+        var images: [Data] = []
+        for photo in self.photos{
+            images.append(photo.pngData()!)
+        }
+        draftNote.images = try? JSONEncoder().encode(images)
+        //存储压缩过的封面图片
+        draftNote.converImage = photos[0].jpegCompress(.middle)
+        
         draftNote.poiName = poiName
         draftNote.subTopic = subTopic
         draftNote.channel = channel
         draftNote.title = titleTextField.exctString
         draftNote.text = textView.exctString
+        draftNote.updatedAt = Date()
+        
+        appDelegate.saveContext()
+        
         
     }
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
@@ -165,7 +185,6 @@ extension NoteEditVC: POIDelagate{
             POILabel.text = poiName
             POILabel.textColor = .systemBlue
         }
-        
 
     }
 }

@@ -2,12 +2,16 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DraftNote" representedClassName="DraftNote" syncable="YES" codeGenerationType="class">
         <attribute name="channel" attributeType="String" defaultValueString=""/>
+        <attribute name="converImage" optional="YES" attributeType="Binary"/>
+        <attribute name="images" optional="YES" attributeType="Binary"/>
         <attribute name="poiName" attributeType="String" defaultValueString=""/>
         <attribute name="subTopic" attributeType="String" defaultValueString=""/>
         <attribute name="text" attributeType="String" defaultValueString=""/>
         <attribute name="title" attributeType="String" defaultValueString=""/>
+        <attribute name="updatedAt" attributeType="Date" defaultDateTimeInterval="658742520" usesScalarValueType="NO"/>
+        <attribute name="video" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
-        <element name="DraftNote" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="DraftNote" positionX="-63" positionY="-18" width="128" height="164"/>
     </elements>
 </model>

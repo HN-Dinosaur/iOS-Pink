@@ -18,6 +18,18 @@ extension Optional where Wrapped == String{
     var unwarpString: String{ self ?? "" }
 
 }
+extension UIImage{
+    enum jpegCompressEnum: Double{
+        case low = 0
+        case betterLow = 0.25
+        case middle = 0.5
+        case high = 0.75
+        case Highest = 1
+    }
+    func jpegCompress(_ compress: jpegCompressEnum) -> Data?{
+        return jpegData(compressionQuality: compress.rawValue)
+    }
+}
 
 extension UITextField{
     //计算属性  解包
