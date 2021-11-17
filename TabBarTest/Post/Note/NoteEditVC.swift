@@ -112,8 +112,6 @@ class NoteEditVC: UIViewController{
             return
         }
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let viewContext = appDelegate.persistentContainer.viewContext
         let draftNote = DraftNote(context: viewContext)
         
         //存储视频
@@ -129,6 +127,7 @@ class NoteEditVC: UIViewController{
         //存储压缩过的封面图片
         draftNote.converImage = photos[0].jpegCompress(.middle)
         
+        draftNote.isVideo = isVideo
         draftNote.poiName = poiName
         draftNote.subTopic = subTopic
         draftNote.channel = channel

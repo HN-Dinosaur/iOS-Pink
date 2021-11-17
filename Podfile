@@ -16,4 +16,5 @@ target 'TabBarTest' do
   pod 'AMapSearch'
   pod 'MJRefresh'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'DateToolsSwift'
 end

@@ -4,6 +4,7 @@
         <attribute name="channel" attributeType="String" defaultValueString=""/>
         <attribute name="converImage" optional="YES" attributeType="Binary"/>
         <attribute name="images" optional="YES" attributeType="Binary"/>
+        <attribute name="isVideo" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="poiName" attributeType="String" defaultValueString=""/>
         <attribute name="subTopic" attributeType="String" defaultValueString=""/>
         <attribute name="text" attributeType="String" defaultValueString=""/>
@@ -12,6 +13,6 @@
         <attribute name="video" optional="YES" attributeType="Binary"/>
     </entity>
     <elements>
-        <element name="DraftNote" positionX="-63" positionY="-18" width="128" height="164"/>
+        <element name="DraftNote" positionX="-63" positionY="-18" width="128" height="179"/>
     </elements>
 </model>

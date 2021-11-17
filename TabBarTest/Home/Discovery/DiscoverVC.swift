@@ -26,8 +26,10 @@ class DiscoverVC: ButtonBarPagerTabStripViewController,IndicatorInfoProvider {
             guard changeCurrentIndex == true else { return }
 
             oldCell?.label.textColor = .secondaryLabel
+            oldCell?.label.font = UIFont.systemFont(ofSize: 14)
             newCell?.label.textColor = .label
-//            newCell?.label.font = UIFont.systemFont(ofSize: 18)
+            newCell?.label.font = UIFont.systemFont(ofSize: 16)
+            
         }
 
     }
@@ -46,15 +48,4 @@ class DiscoverVC: ButtonBarPagerTabStripViewController,IndicatorInfoProvider {
         
         return vcArray
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

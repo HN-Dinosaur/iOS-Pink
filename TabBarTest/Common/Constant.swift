@@ -19,6 +19,7 @@ let kSearchLocationVCID = "SearchLocationVCID"
 let kWaterfallVCID = "WaterfallVCID"
 let kPostVCID = "PostVCID"
 let kPOICellID = "POICellID"
+let kDraftWaterfallCellID = "DraftWaterfallCellID"
 // MARK: CellID
 let kWaterfallCellID = "WaterfallCellID"
 let kPhotoCellID = "photoCellID"
@@ -49,3 +50,7 @@ let kTopicItem = [
 let klocationSDKSecret = "ceeb4f7e3c332e2eba36f31b04fe44d0"
 let kUnknowPOIName = "不知名的地点"
 let kDefaultPageOffset = 20
+
+// MARK: -Core Data
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let viewContext = appDelegate.persistentContainer.viewContext

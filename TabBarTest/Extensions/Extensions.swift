@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD
+import DateToolsSwift
 
 extension String{
     var isBlank: Bool{
@@ -18,7 +19,39 @@ extension Optional where Wrapped == String{
     var unwarpString: String{ self ?? "" }
 
 }
+extension Date{
+    var formattedTime: String{
+        let currentYear = Date().year
+        
+        //今年
+        if year == currentYear{
+            if isToday{
+                if minutesAgo < 10{
+                    return timeAgoSinceNow + "分钟前"
+                }else{
+                    return "今天 \(format(with: "HH:mm"))"
+                }
+            }else if isYesterday{
+                return "昨天 \(format(with: "HH:mm"))"
+            }else{
+                return format(with: "MM-dd")
+            }
+        }else if year < currentYear{
+            return format(with: "yyyy-MM-dd")
+        }else{
+            //一般不会发生这个   因为在存取CoreData时没有让用户进行操作时间记录 由系统记录
+            return "这个是未来的时间"
+        }
+    }
+}
 extension UIImage{
+    convenience init?(optionalData: Data?){
+        if let data = optionalData {
+            self.init(data: data)
+        }else{
+            return nil
+        }
+    }
     enum jpegCompressEnum: Double{
         case low = 0
         case betterLow = 0.25
