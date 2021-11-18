@@ -27,6 +27,7 @@ let kPhotoFooterID = "PhotoFooterID"
 let kTopicItemCellID = "TopicItemCellID"
 // MARK: WaterfallPadding
 let kWaterfallPadding = CGFloat(4)
+let kWaterfallCellBottomHeight: CGFloat = 95
 // MARK: discoverChannel
 let kWaterfallChannel = ["旅行","美食","游戏","健身","美女","帅哥","白富美","宠物"]
 // MARK: -YPImagePickerCosntant
@@ -54,3 +55,6 @@ let kDefaultPageOffset = 20
 // MARK: -Core Data
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let viewContext = appDelegate.persistentContainer.viewContext
+
+// MARK: -ScreenWidth
+let screenWidth = UIScreen.main.bounds.width

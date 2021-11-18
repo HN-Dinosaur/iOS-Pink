@@ -6,12 +6,12 @@
 //
 
 import UIKit
-
+// MARK: -deleteBtn有Bug
 class DraftWaterfallCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var deleteBtn: UIImageView!
     @IBOutlet weak var isVideo: UIImageView!
     
     var draftNote: DraftNote?{

@@ -113,7 +113,7 @@ extension UIViewController{
     }
     func cancelKeyBoardWhenClickAround(){
         let tap = UIGestureRecognizer(target: self, action: #selector(clickAround))
-        //当点击类似于UIView控件时，不要优先响应
+        //当点击类似于UIView控件时，self不要优先响应
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
