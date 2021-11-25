@@ -31,11 +31,10 @@ class TopicTableViewController: UITableViewController, IndicatorInfoProvider {
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: kTopicItemCellID, for: indexPath)
         cell.textLabel?.text = "# \(topicItems[indexPath.row])"
         cell.textLabel?.font = .systemFont(ofSize: 16)
-        // Configure the cell...
 
         return cell
     }

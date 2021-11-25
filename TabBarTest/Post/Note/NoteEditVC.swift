@@ -38,9 +38,8 @@ class NoteEditVC: UIViewController{
     @IBOutlet weak var POILabel: UILabel!
     @IBOutlet weak var storeStack: UIStackView!
     @IBAction func sendBtn(_ sender: Any) {
-        print("点击发送按钮")
+        guard isValid() else {return}
     }
-    
     
     //计算属性如果get的值没有改变则不再重新计算
     var photoCount: Int{
@@ -57,9 +56,6 @@ class NoteEditVC: UIViewController{
         super.viewDidLoad()
         settingLayout()
         setUI()
-//        print(NSHomeDirectory() )
-//        NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-//        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     }
     func setUI(){
         settingDraftNoteUI()
@@ -127,28 +123,43 @@ class NoteEditVC: UIViewController{
         locationManager.requestLocation()
     }
     @objc func registerDraftStoreTapGesture(tap: UITapGestureRecognizer){
-        
-        guard !photos.isEmpty else {
-            showToast(text: "至少添加一张照片")
-            return
-        }
-        
-        guard keyBoardInputAccessoryView.currentTextCount <= kMaxTextViewInputCount else{
-            showToast(text: "最多只能填写\(kMaxTextViewInputCount)个字")
-            return
-        }
+        guard isValid() else {return}
+  
         //更新草稿
         if let draftNote = self.draftNote {
             handleDraftUpdate(draftNote)
-
         }else{
             //创建草稿
             createDraft()
         }
     }
+    func isValid() -> Bool{
+        guard !photos.isEmpty else {
+            showToast(text: "至少添加一张照片")
+            return false
+        }
+        
+        guard keyBoardInputAccessoryView.currentTextCount <= kMaxTextViewInputCount else{
+            showToast(text: "最多只能填写\(kMaxTextViewInputCount)个字")
+            return false
+        }
+        return true
+    }
     //新建草稿
     func createDraft(){
-        let draftNote = DraftNote(context: viewContext)
+        //后台执行
+        backgroundContext.perform {
+            self.backgroundCreateDraft()
+            //主线程执行UI
+            DispatchQueue.main.async {
+                self.showToast(text: "保存草稿成功", false)
+            }
+        }
+        dismiss(animated: true)
+    }
+    //执行创建草稿功能
+    func backgroundCreateDraft(){
+        let draftNote = DraftNote(context: backgroundContext)
         //存储视频
         if isVideo{
             draftNote.video = try? Data(contentsOf: videoURL!)
@@ -159,12 +170,19 @@ class NoteEditVC: UIViewController{
     }
     //更新草稿
     func handleDraftUpdate(_ draftNote: DraftNote){
+        backgroundContext.perform {
+            DispatchQueue.main.async {
+                self.backgroundUpdateDraft(draftNote)
+            }
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    func backgroundUpdateDraft(_ draftNote: DraftNote){
         if !isVideo{
             handleDraftPhoto(draftNote)
         }
         handleDraftOthers(draftNote)
         finishUpdateDraft?()
-        navigationController?.popViewController(animated: true)
     }
     func handleDraftPhoto(_ draftNote: DraftNote){
         //存储所有照片
@@ -174,13 +192,15 @@ class NoteEditVC: UIViewController{
         draftNote.converImage = photos[0].jpegCompress(.middle)
     }
     func handleDraftOthers(_ draftNote: DraftNote){
+        DispatchQueue.main.async {
+            draftNote.title = self.titleTextField.exctString
+            draftNote.text = self.textView.exctString
+        }
         draftNote.poiName = poiName
         draftNote.subTopic = subTopic
         draftNote.channel = channel
-        draftNote.title = titleTextField.exctString
-        draftNote.text = textView.exctString
         draftNote.updatedAt = Date()
-        appDelegate.saveContext()
+        appDelegate.saveBackgroundContext()
     }
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
         let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchLocationVCID) as! SearchLocationVC

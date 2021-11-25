@@ -79,12 +79,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    func saveBackgroundContext(){
+        if backgroundContext.hasChanges{
+            do{
+                try backgroundContext.save()
+            } catch{
+                fatalError("保存草稿失败")
+            }
+        }
+    }
 
 }
 extension AppDelegate{
     func getLocationConfig(){
         AMapServices.shared().enableHTTPS = true
         AMapServices.shared().apiKey = klocationSDKSecret
+        //全局修改Back Button颜色
+//        UINavigationBar.appearance().tintColor = .label
     }
 }
 

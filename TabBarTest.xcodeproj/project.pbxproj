@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9D00D6FD2732A92100898DC0 /* WaterfallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00D6FC2732A92100898DC0 /* WaterfallViewCell.swift */; };
+		9D04F5B6274F335900858014 /* myVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04F5B5274F335900858014 /* myVC.swift */; };
 		9D0B264F2733C41C009DD654 /* myTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B264E2733C41C009DD654 /* myTabBarController.swift */; };
 		9D187326272F836D007D34FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D187325272F836D007D34FB /* AppDelegate.swift */; };
 		9D187328272F836D007D34FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D187327272F836D007D34FB /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		9184926228C5FCB511272CDF /* Pods-TabBarTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBarTest.release.xcconfig"; path = "Target Support Files/Pods-TabBarTest/Pods-TabBarTest.release.xcconfig"; sourceTree = "<group>"; };
 		9D00D6FC2732A92100898DC0 /* WaterfallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallViewCell.swift; sourceTree = "<group>"; };
+		9D04F5B5274F335900858014 /* myVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myVC.swift; sourceTree = "<group>"; };
 		9D0B264E2733C41C009DD654 /* myTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTabBarController.swift; sourceTree = "<group>"; };
 		9D187322272F836D007D34FB /* TabBarTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D187325272F836D007D34FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		9D04F5B7274F335E00858014 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				9D04F5B5274F335900858014 /* myVC.swift */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
 		9D187319272F836D007D34FB = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 				9D187325272F836D007D34FB /* AppDelegate.swift */,
 				9D187327272F836D007D34FB /* SceneDelegate.swift */,
 				9D0B264E2733C41C009DD654 /* myTabBarController.swift */,
+				9D04F5B7274F335E00858014 /* My */,
 				9D79F93027390B27004C33D6 /* Post */,
 				9DD0586227312C6C00543DC9 /* Home */,
 				9D00D7012732BE8400898DC0 /* View */,
@@ -382,6 +393,7 @@
 				9D73BA81273E5F390036F63C /* TopicTableViewController.swift in Sources */,
 				9DD058642731796000543DC9 /* WaterfallVC.swift in Sources */,
 				9D3E9C7D273D6F2700863775 /* KeyBoardInputAccessory.swift in Sources */,
+				9D04F5B6274F335900858014 /* myVC.swift in Sources */,
 				9DD0585F27312B9100543DC9 /* DiscoverVC.swift in Sources */,
 				9D73BA7F273E5C090036F63C /* TopicViewController.swift in Sources */,
 				9D0B264F2733C41C009DD654 /* myTabBarController.swift in Sources */,

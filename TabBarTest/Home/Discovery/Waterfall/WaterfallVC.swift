@@ -14,7 +14,7 @@ import CoreData
 
 class WaterfallVC: UICollectionViewController {
     var channel: String = ""
-    var isDraft = true
+    var isDraft = false
     var draftNotes: [DraftNote] = []
 
     override func viewDidLoad() {
@@ -22,17 +22,18 @@ class WaterfallVC: UICollectionViewController {
         config()
         getCoreData()
     }
+    // MARK: -待做  进入草稿页面后左上角back Button不显示文字
     func config(){
         let layout = self.collectionViewLayout as! CHTCollectionViewWaterfallLayout
         layout.columnCount = 2
         layout.minimumColumnSpacing = kWaterfallPadding
         layout.minimumInteritemSpacing = kWaterfallPadding
         if isDraft{
-            layout.sectionInset = UIEdgeInsets(top:  44, left: kWaterfallPadding, bottom: kWaterfallPadding, right: kWaterfallPadding)
+            layout.sectionInset = UIEdgeInsets(top:  0, left: kWaterfallPadding, bottom: kWaterfallPadding, right: kWaterfallPadding)
         }else{
             layout.sectionInset = UIEdgeInsets(top: 0, left: kWaterfallPadding, bottom: kWaterfallPadding, right: kWaterfallPadding)
         }
-
+        navigationItem.title = "编辑草稿"
     }
     func getCoreData(){
         let request = DraftNote.fetchRequest()
@@ -42,8 +43,16 @@ class WaterfallVC: UICollectionViewController {
 //        request.returnsObjectsAsFaults  fault in fired
         request.propertiesToFetch = ["title","updatedAt","isVideo"] 
         request.sortDescriptors = [NSSortDescriptor(key: "updatedAt", ascending: false)]
-        let draftNotes = try! viewContext.fetch(request)
-        self.draftNotes = draftNotes
+        showLoad()
+        backgroundContext.perform {
+            let draftNotes = try! backgroundContext.fetch(request)
+            self.draftNotes = draftNotes
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            self.hideLoad()
+
+        }
     }
 
 
@@ -76,7 +85,7 @@ class WaterfallVC: UICollectionViewController {
                 let noteEditVC = storyboard?.instantiateViewController(withIdentifier: kNoteEditVCID) as! NoteEditVC
                 noteEditVC.draftNote = draftNote
                 noteEditVC.videoURL = videoURL
-                noteEditVC.photos = imageArray
+                noteEditVC.photos = imageArray 
                 //回调闭包的思想
                 noteEditVC.finishUpdateDraft = {
                     self.getCoreData()
@@ -109,20 +118,27 @@ class WaterfallVC: UICollectionViewController {
 
     }
     func deleteDraftNote(index: Int){
+        backgroundContext.perform {
+            self.backgroundDeleteDraftNote(index: index)
+        }
+    }
+    func backgroundDeleteDraftNote(index: Int){
         let draftNote = draftNotes[index]
         //Core Data
-        viewContext.delete(draftNote)
-        appDelegate.saveContext()
+        backgroundContext.delete(draftNote)
+        appDelegate.saveBackgroundContext()
         //本地数据
         draftNotes.remove(at: index)
-        //UI
-        collectionView.performBatchUpdates {
-            collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
+        DispatchQueue.main.async {
+            self.showToast(text: "删除草稿成功")
+            //UI
+//            self.collectionView.performBatchUpdates {
+//                self.collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
+//            }
+            self.collectionView.reloadData()
         }
     }
     @objc private func showAlert(tap: UITapGestureRecognizer){
-        print(tap.numberOfTapsRequired)
-
         let index = tap.numberOfTapsRequired
         let alert = UIAlertController(title: "提示", message: "确认要删除该草稿吗?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "取消", style: .cancel)

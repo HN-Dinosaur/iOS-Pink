@@ -40,20 +40,31 @@ class myTabBarController: UITabBarController, UITabBarControllerDelegate {
             
             let picker = YPImagePicker(configuration: config)
             //传入closure
-            picker.didFinishPicking { [unowned picker] items, _ in
-                for item in items{
-                    switch item{
-                    case .photo(let photo):
-                        print(photo.fromCamera) // Image source (camera or library)
-                        print(photo.image) // Final image selected by the user
-                        print(photo.originalImage) // original image selected by the user, unfiltered
-                    case .video(let video):
-                        print(video.fromCamera)
+            picker.didFinishPicking { [unowned picker] items, cancel in
+                if cancel{
+                    picker.dismiss(animated: true)
+                }else{
+                    var photos: [UIImage] = []
+                    var videoURL: URL?
+                    for item in items{
+                        switch item{
+                        case .photo(let photo):
+                            photos.append(photo.image)
+                        case .video(let video):
+                            photos.append(video.thumbnail)
+                            videoURL = video.url
+                        }
                     }
-
+                    guard let noteVC = self.storyboard!.instantiateViewController(withIdentifier: kNoteEditVCID) as? NoteEditVC else{
+                        picker.dismiss(animated: true)
+                        return
+                    }
+                    noteVC.photos = photos
+                    noteVC.videoURL = videoURL
                     
+                    picker.pushViewController(noteVC, animated: true)
                 }
-                picker.dismiss(animated: true, completion: nil)
+                
             }
             
             present(picker, animated: true, completion: nil)
@@ -62,14 +73,5 @@ class myTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
         return true
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

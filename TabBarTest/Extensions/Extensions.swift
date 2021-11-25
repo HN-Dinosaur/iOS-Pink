@@ -105,8 +105,13 @@ extension UIViewController{
         }
     }
     // MARK: 显示文字提示
-    func showToast(text: String){
-        let toast = MBProgressHUD.showAdded(to: view, animated: true)
+    func showToast(text: String,_ isOriginView: Bool = true){
+        var showView: UIView = view
+        //如果false  不要原视图显示 则显示最底层视图
+        if !isOriginView{
+            showView = UIApplication.shared.windows.last ?? view
+        }
+        let toast = MBProgressHUD.showAdded(to: showView, animated: true)
         toast.mode = .text
         toast.label.text = text
         toast.hide(animated: true, afterDelay: 2)

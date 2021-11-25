@@ -55,7 +55,9 @@ let kDefaultPageOffset = 20
 
 // MARK: -Core Data
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let viewContext = appDelegate.persistentContainer.viewContext
+let persistentContainer = appDelegate.persistentContainer
+let viewContext = persistentContainer.viewContext
+let backgroundContext = persistentContainer.newBackgroundContext()
 
 // MARK: -ScreenWidth
 let screenWidth = UIScreen.main.bounds.width
