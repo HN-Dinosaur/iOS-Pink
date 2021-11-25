@@ -12,6 +12,7 @@ import AMapLocationKit
 
 class NoteEditVC: UIViewController{
     
+    var draftNote: DraftNote?
     var photos = [
         UIImage(named: "1")!,UIImage(named: "2")!
     ]
@@ -20,6 +21,8 @@ class NoteEditVC: UIViewController{
     var channel: String = ""
     var subTopic: String = ""
     var poiName: String = ""
+    
+    var finishUpdateDraft: (() -> ())?
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var locationGesture: UIStackView!
@@ -35,7 +38,7 @@ class NoteEditVC: UIViewController{
     @IBOutlet weak var POILabel: UILabel!
     @IBOutlet weak var storeStack: UIStackView!
     @IBAction func sendBtn(_ sender: Any) {
-        
+        print("点击发送按钮")
     }
     
     
@@ -53,11 +56,30 @@ class NoteEditVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         settingLayout()
-        print(NSHomeDirectory() )
-        NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        setUI()
+//        print(NSHomeDirectory() )
+//        NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+//        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
     }
-    
+    func setUI(){
+        settingDraftNoteUI()
+    }
+    func settingDraftNoteUI(){
+        if let draftNote = draftNote {
+            titleTextField.text = draftNote.title!
+            textView.text = draftNote.text!
+            channel = draftNote.channel!
+            subTopic = draftNote.subTopic!
+            poiName = draftNote.poiName!
+            
+            if !subTopic.isEmpty{
+                updateChannelUI()
+            }
+            if !poiName.isEmpty{
+                updatePOIUI()
+            }
+        }
+    }
     func settingLayout(){
         photoCollectionView.dragInteractionEnabled = true
         textCount.isHidden = true
@@ -95,49 +117,70 @@ class NoteEditVC: UIViewController{
         let locationTap = UITapGestureRecognizer(target: self, action: #selector(registerLocationTapGesture(tap:)))
         locationGesture.addGestureRecognizer(locationTap)
         //存草稿功能
-        let draftStoreTap = UITapGestureRecognizer(target: self, action: #selector(registerDraftStoreTapGesture(tao:)))
+        let draftStoreTap = UITapGestureRecognizer(target: self, action: #selector(registerDraftStoreTapGesture(tap:)))
         storeStack.addGestureRecognizer(draftStoreTap)
         
         //请求地址
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
-        //请求的位置精度
         //异步请求
         locationManager.requestLocation()
     }
-    @objc func registerDraftStoreTapGesture(tao: UITapGestureRecognizer){
+    @objc func registerDraftStoreTapGesture(tap: UITapGestureRecognizer){
+        
+        guard !photos.isEmpty else {
+            showToast(text: "至少添加一张照片")
+            return
+        }
         
         guard keyBoardInputAccessoryView.currentTextCount <= kMaxTextViewInputCount else{
             showToast(text: "最多只能填写\(kMaxTextViewInputCount)个字")
             return
         }
-        
+        //更新草稿
+        if let draftNote = self.draftNote {
+            handleDraftUpdate(draftNote)
+
+        }else{
+            //创建草稿
+            createDraft()
+        }
+    }
+    //新建草稿
+    func createDraft(){
         let draftNote = DraftNote(context: viewContext)
-        
         //存储视频
         if isVideo{
             draftNote.video = try? Data(contentsOf: videoURL!)
         }
-        //存储所有照片
-        var images: [Data] = []
-        for photo in self.photos{
-            images.append(photo.pngData()!)
+        handleDraftPhoto(draftNote)
+        draftNote.isVideo = isVideo
+        handleDraftOthers(draftNote)
+    }
+    //更新草稿
+    func handleDraftUpdate(_ draftNote: DraftNote){
+        if !isVideo{
+            handleDraftPhoto(draftNote)
         }
+        handleDraftOthers(draftNote)
+        finishUpdateDraft?()
+        navigationController?.popViewController(animated: true)
+    }
+    func handleDraftPhoto(_ draftNote: DraftNote){
+        //存储所有照片
+        let images:[Data] = photos.map { $0.pngData() ?? imagePlacehold.pngData()! }
         draftNote.images = try? JSONEncoder().encode(images)
         //存储压缩过的封面图片
         draftNote.converImage = photos[0].jpegCompress(.middle)
-        
-        draftNote.isVideo = isVideo
+    }
+    func handleDraftOthers(_ draftNote: DraftNote){
         draftNote.poiName = poiName
         draftNote.subTopic = subTopic
         draftNote.channel = channel
         draftNote.title = titleTextField.exctString
         draftNote.text = textView.exctString
         draftNote.updatedAt = Date()
-        
         appDelegate.saveContext()
-        
-        
     }
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
         let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchLocationVCID) as! SearchLocationVC
@@ -163,28 +206,36 @@ extension NoteEditVC: TopicDelegate{
         self.channel = topic
         self.subTopic = subTopic
         
+        updateChannelUI()
+    }
+    func updateChannelUI(){
         self.topicIcon.tintColor = .systemBlue
         self.topicLabel.text = subTopic
         self.topicLabel.textColor = .systemBlue
         self.selectTopicLabel.isHidden = true
-        
     }
 }
+
 extension NoteEditVC: POIDelagate{
     func updatePOI(poiName: String) {
         
         if poiName == "不显示任何位置"{
             self.poiName = ""
+        }else{
+            self.poiName = poiName
+        }
+        updatePOIUI()
+    }
+    func updatePOIUI(){
+        if poiName == ""{
             POIIcon.tintColor = .secondaryLabel
             POILabel.text = "添加地点"
             POILabel.textColor = .label
         }else{
-            self.poiName = poiName
             POIIcon.tintColor = .systemBlue
             POILabel.text = poiName
             POILabel.textColor = .systemBlue
         }
-
     }
 }
 

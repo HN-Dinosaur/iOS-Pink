@@ -64,11 +64,33 @@ class WaterfallVC: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let cell = collectionView.cellForItem(at: indexPath)
-        let draftNote = draftNotes[indexPath.item]
-        
-        if let dataImages = draftNote.images, let decodeImages = try? JSONDecoder().decode([Data].self, from: dataImages){
-            let imageArray = decodeImages.map { UIImage(data: $0)!}
+        //如果是草稿页面
+        if isDraft{
+            let draftNote = draftNotes[indexPath.item]
+            
+            if let dataImages = draftNote.images, let decodeDataImages = try? JSONDecoder().decode([Data].self, from: dataImages){
+                let imageArray = decodeDataImages.map { UIImage(data: $0) ?? imagePlacehold }
+                
+                let videoURL = FileManager.default.save(draftNote.video, dirName: "video", fileName: UUID().uuidString + ".mp4")
+                
+                let noteEditVC = storyboard?.instantiateViewController(withIdentifier: kNoteEditVCID) as! NoteEditVC
+                noteEditVC.draftNote = draftNote
+                noteEditVC.videoURL = videoURL
+                noteEditVC.photos = imageArray
+                //回调闭包的思想
+                noteEditVC.finishUpdateDraft = {
+                    self.getCoreData()
+                    self.collectionView.reloadData()
+                }
+                navigationController?.pushViewController(noteEditVC, animated: true)
+            }else{
+                showToast(text: "加载草稿失败")
+            }
+            //是Discovery页面
+        }else{
+            
         }
+
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if isDraft{

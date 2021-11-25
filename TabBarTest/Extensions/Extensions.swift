@@ -111,15 +111,15 @@ extension UIViewController{
         toast.label.text = text
         toast.hide(animated: true, afterDelay: 2)
     }
-    func cancelKeyBoardWhenClickAround(){
-        let tap = UIGestureRecognizer(target: self, action: #selector(clickAround))
-        //当点击类似于UIView控件时，self不要优先响应
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    @objc func clickAround(){
-        view.endEditing(true)
-    }
+//    func cancelKeyBoardWhenClickAround(){
+//        let tap = UIGestureRecognizer(target: self, action: #selector(clickAround))
+//        //当点击类似于UIView控件时，self不要优先响应
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//    @objc func clickAround(){
+//        view.endEditing(true)
+//    }
 }
 //main是单例对象
 extension Bundle{
@@ -128,5 +128,43 @@ extension Bundle{
             return view
         }
         fatalError("获取BundleView出现问题")
+    }
+}
+extension FileManager{
+    func save(_ data: Data?, dirName: String, fileName: String) -> URL?{
+        guard let data = data else {
+            print("data为空")
+            return nil
+            
+        }
+        
+
+        //拼接文件夹的URL
+        let directoryURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(dirName, isDirectory: true)
+        
+        //判断文件夹是否存在
+        if !fileExists(atPath: directoryURL.path){
+            //创建文件夹
+            guard let _ =  try? createDirectory(at: directoryURL, withIntermediateDirectories: true) else {
+                print("创建文件夹失败")
+                return nil
+                
+            }
+        }
+        //拼接文件的URL
+        let fileURL = directoryURL.appendingPathComponent(fileName)
+        
+        //判断文件是否存在
+        if !fileExists(atPath: fileURL.path){
+            //写入文件
+            guard let _ = try? data.write(to: fileURL) else {
+                print("写入文件失败")
+                return nil
+                
+            }
+        }
+        //返回URL
+        return fileURL
+
     }
 }

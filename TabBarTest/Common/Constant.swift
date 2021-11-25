@@ -15,6 +15,7 @@ let kNearbyVCID = "NearbyVCID"
 let kTopicTableViewControllerID = "TopicTableViewControllerID"
 let kTopicViewControllerID = "TopicViewControllerID"
 let kSearchLocationVCID = "SearchLocationVCID"
+let kNoteEditVCID = "NoteEditVCID"
 // MARK: Waterfall
 let kWaterfallVCID = "WaterfallVCID"
 let kPostVCID = "PostVCID"
@@ -58,3 +59,6 @@ let viewContext = appDelegate.persistentContainer.viewContext
 
 // MARK: -ScreenWidth
 let screenWidth = UIScreen.main.bounds.width
+
+// MARK: -ImageConstant
+let imagePlacehold = UIImage(named: "imagePH")!
