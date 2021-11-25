@@ -30,10 +30,11 @@ class WaterfallVC: UICollectionViewController {
         layout.minimumInteritemSpacing = kWaterfallPadding
         if isDraft{
             layout.sectionInset = UIEdgeInsets(top:  0, left: kWaterfallPadding, bottom: kWaterfallPadding, right: kWaterfallPadding)
+            navigationItem.title = "编辑草稿"
         }else{
             layout.sectionInset = UIEdgeInsets(top: 0, left: kWaterfallPadding, bottom: kWaterfallPadding, right: kWaterfallPadding)
         }
-        navigationItem.title = "编辑草稿"
+
     }
     func getCoreData(){
         let request = DraftNote.fetchRequest()
@@ -105,10 +106,8 @@ class WaterfallVC: UICollectionViewController {
         if isDraft{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kDraftWaterfallCellID, for: indexPath) as! DraftWaterfallCell
             cell.draftNote = draftNotes[indexPath.item]
-//            cell.deleteBtn.addTarget(self, action: #selector(showAlert), for: .touchUpInside)
-            let tap = UITapGestureRecognizer(target: self, action: #selector(showAlert))
-            tap.numberOfTapsRequired = indexPath.item
-            cell.deleteBtn.addGestureRecognizer(tap)
+            cell.deleteBtn.tag = indexPath.item
+            cell.deleteBtn.addTarget(self, action: #selector(showAlert(button:)), for: .touchUpInside)
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kWaterfallCellID, for: indexPath) as! WaterfallViewCell
@@ -138,8 +137,8 @@ class WaterfallVC: UICollectionViewController {
             self.collectionView.reloadData()
         }
     }
-    @objc private func showAlert(tap: UITapGestureRecognizer){
-        let index = tap.numberOfTapsRequired
+    @objc private func showAlert(button: UIButton){
+        let index = button.tag
         let alert = UIAlertController(title: "提示", message: "确认要删除该草稿吗?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "取消", style: .cancel)
         let confirm = UIAlertAction(title: "确认", style: .destructive) { _ in

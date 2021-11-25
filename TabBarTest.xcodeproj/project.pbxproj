@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9D00D6FD2732A92100898DC0 /* WaterfallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00D6FC2732A92100898DC0 /* WaterfallViewCell.swift */; };
-		9D04F5B6274F335900858014 /* myVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04F5B5274F335900858014 /* myVC.swift */; };
 		9D0B264F2733C41C009DD654 /* myTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B264E2733C41C009DD654 /* myTabBarController.swift */; };
 		9D187326272F836D007D34FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D187325272F836D007D34FB /* AppDelegate.swift */; };
 		9D187328272F836D007D34FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D187327272F836D007D34FB /* SceneDelegate.swift */; };
@@ -16,6 +15,9 @@
 		9D187330272F836D007D34FB /* TabBarTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D18732E272F836D007D34FB /* TabBarTest.xcdatamodeld */; };
 		9D187332272F8370007D34FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D187331272F8370007D34FB /* Assets.xcassets */; };
 		9D187335272F8370007D34FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D187333272F8370007D34FB /* LaunchScreen.storyboard */; };
+		9D194B2A274FB29300E50A10 /* NoteEditVC-Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D194B29274FB29300E50A10 /* NoteEditVC-Config.swift */; };
+		9D194B2C274FB4F800E50A10 /* NoteEditVC-DraftNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D194B2B274FB4F800E50A10 /* NoteEditVC-DraftNote.swift */; };
+		9D194B2E274FBBED00E50A10 /* MyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D194B2D274FBBED00E50A10 /* MyVC.swift */; };
 		9D3E9C7D273D6F2700863775 /* KeyBoardInputAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */; };
 		9D598645273F60F9007C1E7A /* SearchLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D598644273F60F9007C1E7A /* SearchLocationVC.swift */; };
 		9D598647273FE14B007C1E7A /* SearchLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D598646273FE14B007C1E7A /* SearchLocationCell.swift */; };
@@ -45,7 +47,6 @@
 /* Begin PBXFileReference section */
 		9184926228C5FCB511272CDF /* Pods-TabBarTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TabBarTest.release.xcconfig"; path = "Target Support Files/Pods-TabBarTest/Pods-TabBarTest.release.xcconfig"; sourceTree = "<group>"; };
 		9D00D6FC2732A92100898DC0 /* WaterfallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallViewCell.swift; sourceTree = "<group>"; };
-		9D04F5B5274F335900858014 /* myVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myVC.swift; sourceTree = "<group>"; };
 		9D0B264E2733C41C009DD654 /* myTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTabBarController.swift; sourceTree = "<group>"; };
 		9D187322272F836D007D34FB /* TabBarTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D187325272F836D007D34FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +56,9 @@
 		9D187331272F8370007D34FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D187334272F8370007D34FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D187336272F8370007D34FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D194B29274FB29300E50A10 /* NoteEditVC-Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditVC-Config.swift"; sourceTree = "<group>"; };
+		9D194B2B274FB4F800E50A10 /* NoteEditVC-DraftNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditVC-DraftNote.swift"; sourceTree = "<group>"; };
+		9D194B2D274FBBED00E50A10 /* MyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVC.swift; sourceTree = "<group>"; };
 		9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardInputAccessory.swift; sourceTree = "<group>"; };
 		9D598644273F60F9007C1E7A /* SearchLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationVC.swift; sourceTree = "<group>"; };
 		9D598646273FE14B007C1E7A /* SearchLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationCell.swift; sourceTree = "<group>"; };
@@ -142,7 +146,7 @@
 		9D04F5B7274F335E00858014 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				9D04F5B5274F335900858014 /* myVC.swift */,
+				9D194B2D274FBBED00E50A10 /* MyVC.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -246,6 +250,8 @@
 			children = (
 				9D79F92B2738D12B004C33D6 /* NoteEditVC.swift */,
 				9DD0E9DB273BEB230021B6D6 /* NoteEditVC-Extension.swift */,
+				9D194B29274FB29300E50A10 /* NoteEditVC-Config.swift */,
+				9D194B2B274FB4F800E50A10 /* NoteEditVC-DraftNote.swift */,
 				9D73BA82273E5F430036F63C /* TopicSelect */,
 				9D598648273FE152007C1E7A /* SearchLocation */,
 				9D3E9C7C273D6F2700863775 /* KeyBoardInputAccessory.swift */,
@@ -392,11 +398,13 @@
 				9D835CA52730165E00229187 /* XLTabVC.swift in Sources */,
 				9D73BA81273E5F390036F63C /* TopicTableViewController.swift in Sources */,
 				9DD058642731796000543DC9 /* WaterfallVC.swift in Sources */,
+				9D194B2E274FBBED00E50A10 /* MyVC.swift in Sources */,
 				9D3E9C7D273D6F2700863775 /* KeyBoardInputAccessory.swift in Sources */,
-				9D04F5B6274F335900858014 /* myVC.swift in Sources */,
 				9DD0585F27312B9100543DC9 /* DiscoverVC.swift in Sources */,
 				9D73BA7F273E5C090036F63C /* TopicViewController.swift in Sources */,
+				9D194B2C274FB4F800E50A10 /* NoteEditVC-DraftNote.swift in Sources */,
 				9D0B264F2733C41C009DD654 /* myTabBarController.swift in Sources */,
+				9D194B2A274FB29300E50A10 /* NoteEditVC-Config.swift in Sources */,
 				9D79F95527393DF7004C33D6 /* PhotoFooter.swift in Sources */,
 				9D187326272F836D007D34FB /* AppDelegate.swift in Sources */,
 				9D79F92C2738D12B004C33D6 /* NoteEditVC.swift in Sources */,

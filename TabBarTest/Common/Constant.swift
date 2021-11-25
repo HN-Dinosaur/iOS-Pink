@@ -16,6 +16,7 @@ let kTopicTableViewControllerID = "TopicTableViewControllerID"
 let kTopicViewControllerID = "TopicViewControllerID"
 let kSearchLocationVCID = "SearchLocationVCID"
 let kNoteEditVCID = "NoteEditVCID"
+let kMyVCID = "MyVCID"
 // MARK: Waterfall
 let kWaterfallVCID = "WaterfallVCID"
 let kPostVCID = "PostVCID"

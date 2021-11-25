@@ -22,6 +22,8 @@ extension NoteEditVC: UICollectionViewDelegate{
             let avPlayer = AVPlayerViewController()
             let player = AVPlayer(url: videoURL!)
             avPlayer.player = player
+            //全屏
+            avPlayer.modalPresentationStyle = .fullScreen
             present(avPlayer, animated: true)
             player.play()
         }else{
