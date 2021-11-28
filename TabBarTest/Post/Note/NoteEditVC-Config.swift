@@ -9,8 +9,10 @@ import UIKit
 import CoreData
 import CoreLocation
 import AMapLocationKit
+import PopupDialog
 
 extension NoteEditVC{
+    
     func settingTextView(){
         //得到TextView左右的padding
         let padding = textView.textContainer.lineFragmentPadding
@@ -45,12 +47,19 @@ extension NoteEditVC{
         //TextField
         textCount.isHidden = true
         textCount.text = "\(kMaxTextFieldInputCount)"
-        
+        //设置TextView的界面
         settingTextView()
-
+        //注册手势
         settingGesture()
-        
+        //请求位置
         requestLocation()
+        //设置右上角PopUp
+        setRightBarButtonItem()
+    }
+    func setRightBarButtonItem(){
+        let config = UIImage.SymbolConfiguration(scale: .large)
+        let icon = UIImage(systemName: "info.circle", withConfiguration: config)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: icon, style: .plain, target: self, action: #selector(showPopUp))
     }
     func settingGesture(){
         //添加点击话题手势
@@ -70,6 +79,21 @@ extension NoteEditVC{
         //异步请求
         locationManager.requestLocation()
     }
+    @objc func showPopUp(){
+        let title = "发布小贴士"
+        let message =
+        """
+        1.xxx
+        2.yyy
+        3.xixi
+        """
+        // Create the dialog
+        let popup = PopupDialog(title: title, message: message,transitionStyle: .zoomIn)
+        let confirmBtn = CancelButton(title: "我知道了", action: nil)
+        popup.addButtons([confirmBtn])
+        // Present dialog
+        self.present(popup, animated: true)
+    }
     @objc func registerLocationTapGesture(tap: UITapGestureRecognizer){
         let searchVC = storyboard?.instantiateViewController(withIdentifier: kSearchLocationVCID) as! SearchLocationVC
         searchVC.modalPresentationStyle = .fullScreen
@@ -86,4 +110,5 @@ extension NoteEditVC{
     @objc func resignKeyBoardInputAccessoryRespond(){
         textView.resignFirstResponder()
     }
+    
 }

@@ -49,10 +49,35 @@ let kTopicItem = [
     ["我的猫儿子", "我的猫女儿", "我的兔兔"]
 ]
 
-// MARK: gaodeSDK
+// MARK: 高德SDK
 let klocationSDKSecret = "ceeb4f7e3c332e2eba36f31b04fe44d0"
 let kUnknowPOIName = "不知名的地点"
 let kDefaultPageOffset = 20
+
+// MARK: -LeanCould云端
+let kCLAppID = "8M8W4rja3sxmyflNlDlcJd2d-gzGzoHsz"
+let kCLAppKey = "BGkgISW1HD1c6GWvVkgJvPnD"
+let kMasterKey = "TDzrOYx8fv9lEYEDstRfgl4G"
+let kCLRestAPI = "https://8m8w4rja.lc-cn-n1-shared.com"
+
+// MARK: -极光一键登录
+let kJAppKey = "38356f1f6dd183672540ba26"
+
+// MARK: -手机验证码登录
+
+
+// MARK: -云端数据库
+let kNoteTable = "Note"
+
+let kLCTitleCol = "Title"
+let kLCTextCol = "Text"
+let kLCPOIName = "POIName"
+let kLCSubTopic = "SubTopic"
+let kLCChannel = "Channel"
+let kLCPhotos = "Photos"
+let kLCVideo = "Video"
+let kLCCoverPhoto = "CoverPhoto"
+
 
 // MARK: -Core Data
 let appDelegate = UIApplication.shared.delegate as! AppDelegate

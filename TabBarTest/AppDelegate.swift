@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import AMapLocationKit
 import AMapFoundationKit
+import LeanCloud
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -96,6 +97,15 @@ extension AppDelegate{
         AMapServices.shared().apiKey = klocationSDKSecret
         //全局修改Back Button颜色
 //        UINavigationBar.appearance().tintColor = .label
+//        LCApplication.logLevel = .off
+//        do {
+//            try LCApplication.default.set(
+//                id: kCLAppID,
+//                key: kCLAppKey,
+//                serverURL: kCLRestAPI)
+//        } catch {
+//            print(error)
+//        }
     }
 }
 

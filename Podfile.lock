@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.4)
   - AMapFoundation (1.6.9)
   - AMapLocation (2.8.0):
     - AMapFoundation (~> 1.6.9)
@@ -6,64 +7,106 @@ PODS:
     - AMapFoundation (~> 1.6.9)
   - CHTCollectionViewWaterfallLayout/Swift (0.9.8)
   - DateToolsSwift (5.0.0)
+  - DynamicBlurView (4.1.0)
+  - GRDB.swift (5.14.0):
+    - GRDB.swift/standard (= 5.14.0)
+  - GRDB.swift/standard (5.14.0)
+  - JCore (3.1.0)
+  - JVerification (2.7.6):
+    - JCore (>= 2.1.6)
   - KMPlaceholderTextView (1.4.0)
+  - LeanCloud (17.10.1):
+    - LeanCloud/RTM (= 17.10.1)
+  - LeanCloud/Foundation (17.10.1):
+    - Alamofire (~> 5.4)
+  - LeanCloud/RTM (17.10.1):
+    - GRDB.swift (~> 5.12)
+    - LeanCloud/Foundation (= 17.10.1)
+    - SwiftProtobuf (~> 1.18)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.7.2)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
   - PryntTrimmerView (4.0.2)
   - SKPhotoBrowser (7.0.0)
   - SnapKit (5.0.1)
   - SteviaLayout (4.7.3)
+  - SwiftProtobuf (1.18.0)
+  - SwiftyJSON (4.3.0)
   - XLPagerTabStrip (9.0.0)
   - YPImagePicker (5.0.0):
     - PryntTrimmerView (= 4.0.2)
     - SteviaLayout (= 4.7.3)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
   - AMapLocation
   - AMapSearch
   - CHTCollectionViewWaterfallLayout/Swift
   - DateToolsSwift
+  - JVerification
   - KMPlaceholderTextView (~> 1.4.0)
+  - LeanCloud
   - MBProgressHUD (~> 1.2.0)
   - MJRefresh
+  - PopupDialog (~> 1.1)
   - SKPhotoBrowser
   - SnapKit (~> 5.0.0)
+  - SwiftyJSON (~> 4.0)
   - XLPagerTabStrip (~> 9.0)
   - YPImagePicker
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - AMapFoundation
     - AMapLocation
     - AMapSearch
     - CHTCollectionViewWaterfallLayout
     - DateToolsSwift
+    - DynamicBlurView
+    - GRDB.swift
+    - JCore
+    - JVerification
     - KMPlaceholderTextView
+    - LeanCloud
     - MBProgressHUD
     - MJRefresh
+    - PopupDialog
     - PryntTrimmerView
     - SKPhotoBrowser
     - SnapKit
     - SteviaLayout
+    - SwiftProtobuf
+    - SwiftyJSON
     - XLPagerTabStrip
     - YPImagePicker
 
 SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   AMapFoundation: 8d8ecbb0b2e9ce5487995360d26c885d94642bfd
   AMapLocation: 5ef44a1117be7dc541cb7a7d43d03c5ee91e4387
   AMapSearch: 5c1cc07429f04b9cc76438fcb2411c66fdbbb178
   CHTCollectionViewWaterfallLayout: 5f241d2480ab4939aa0d1ad4981de9eef1fbe60d
   DateToolsSwift: 4207ada6ad615d8dc076323d27037c94916dbfa6
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
+  GRDB.swift: db35631b9a633db371df2f15ee6ffb52b9a7fc50
+  JCore: 4029befb2497adc36b2496e2cfd6b24d9f671784
+  JVerification: ec6df3457b1caf572149a01cff106cc85b8d1f1f
   KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
+  LeanCloud: e6de4b8129ab68be7f70a9b77c4304f71c5a1a2c
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
   SKPhotoBrowser: 6aaa8f232752e87c7e76bace183bead0a137097d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  SwiftProtobuf: c3c12645230d9b09c72267e0de89468c5543bd86
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
   YPImagePicker: 1463a19a36244e209dcb03c30e63559c5afa9602
 
-PODFILE CHECKSUM: c0743dca4d5612f1ce0919a32be4d179b65c0c65
+PODFILE CHECKSUM: 64cbbd2798ee70b11eac735c3c6e8fae4017720d
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

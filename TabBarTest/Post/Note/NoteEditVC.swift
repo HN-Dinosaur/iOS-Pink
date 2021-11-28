@@ -9,13 +9,12 @@ import UIKit
 import CoreData
 import CoreLocation
 import AMapLocationKit
+import LeanCloud
 
 class NoteEditVC: UIViewController{
     
     var draftNote: DraftNote?
-    var photos = [
-        UIImage(named: "1")!,UIImage(named: "2")!
-    ]
+    var photos :[UIImage] = []
     var videoURL: URL?
     
     var channel: String = ""
@@ -39,6 +38,21 @@ class NoteEditVC: UIViewController{
     @IBOutlet weak var storeStack: UIStackView!
     @IBAction func sendBtn(_ sender: Any) {
         guard isValid() else {return}
+        
+        do {
+            let tableObject = LCObject(className: kNoteTable)
+            try tableObject.set("title", value: titleTextField.exctString)
+            try tableObject.set("text", value: textView.exctString)
+            try tableObject.set("channel", value: channel.isEmpty ? "推荐" : channel)
+            try tableObject.set("poiName", value: poiName)
+            try tableObject.set("subTopic", value: subTopic)
+            let result = tableObject.save()
+            if let error = result.error {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
     }
     
     //计算属性如果get的值没有改变则不再重新计算

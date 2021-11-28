@@ -13,6 +13,11 @@
 //在桥接文件中引入头文件
 #import <AMapFoundationKit/AMapFoundationKit.h>
 
+//高德SDK
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
+//TableView上拉刷新
 #import "MJRefresh.h"
+//极光一键登录SDK
+#import "JVERIFICATIONService.h"
+

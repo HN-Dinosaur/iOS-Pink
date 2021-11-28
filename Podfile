@@ -17,4 +17,9 @@ target 'TabBarTest' do
   pod 'MJRefresh'
   pod 'SnapKit', '~> 5.0.0'
   pod 'DateToolsSwift'
+  pod 'LeanCloud'
+  pod 'PopupDialog', '~> 1.1'
+  pod 'Alamofire', '~> 5.2'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'JVerification'
 end
